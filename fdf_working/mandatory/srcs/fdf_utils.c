@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   fdf_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:34:37 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/06 23:32:36 by dpentlan         ###   ########.fr       */
+/*   Created: 2023/06/06 22:17:43 by dpentlan          #+#    #+#             */
+/*   Updated: 2023/06/06 23:33:01 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main (int argc, char **argv)
+int error_fdf(t_master *master, char *message)
 {
-    t_master   master;
+    if (master) {}  // get rid of this
+    if (message)
+        perror(message);
+    exit(EXIT_FAILURE);
+}
 
-    if (argv) {} // get rid of this
-    if (argc != 2)
-        error_fdf(&master, "args");
-    // 
-    init_win(&master);
-    if (read_in_map(argv[1]))
-        error_fdf(&master, "read_in_map");
-    mlx_key_hook(master.win.win_ptr, &key_press, (void *)&master);
-    mlx_loop(master.win.mlx_ptr);
-    return (0);
+void    close_program(t_master *master)
+{
+    mlx_destroy_window(master->win.mlx_ptr, master->win.win_ptr);
+    error_fdf(master, NULL);
 }
 
