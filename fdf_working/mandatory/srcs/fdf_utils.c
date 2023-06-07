@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:17:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/07 10:48:29 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/07 14:38:06 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int error_fdf(t_master *master, char *message)
         free(master->win.mlx_ptr);
         master->win.mlx_ptr = 0;
     }
+    if (master->map.buf)
+        ft_lstclear(&(master->map.buf), &ft_free_tab);
     if (message)
         perror(message);
     exit(EXIT_FAILURE);
@@ -50,3 +52,7 @@ void    close_program(t_master *master)
     exit(0);
 }
 
+void    init_master(t_master* master)
+{
+    master->map.buf = 0;
+}
