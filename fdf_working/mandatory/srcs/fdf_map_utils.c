@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/07 14:57:02 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:34:30 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ int read_in_map(t_master *master, char *filename)
         error_fdf(master, "open");
     read_lines(master, fd);
     fdf_debug_print_read_in_file(master);
-    //convert ll + tabs into ll of points.
+    if (build_points_list(master))
+        error_fdf(master, "malloc");
     ft_lstclear(&(master->map.buf), &ft_free_tab);
     close(fd);
     return (0);

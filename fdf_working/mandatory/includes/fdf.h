@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/07 14:56:33 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:36:14 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ int     read_in_map(t_master *master, char *filename);
 
 //  fdf_debug_utils.c
 void    fdf_debug_print_read_in_file(t_master *master);
+
+//  fdf_points_utils.c
+int build_points_list(t_master *master);
 
 #endif
