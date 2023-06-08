@@ -6,12 +6,13 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/08 14:52:43 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:21:01 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+# define DEBUG 1
 
 # include "../../libft/includes/libft.h"
 # include "mlx.h"
@@ -87,5 +88,8 @@ int		get_y_len(t_master *master);
 int		get_x_len(t_master *master);
 int		build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
+
+//	fdf_render_utils.c
+int		draw_map(t_master *master);
 
 #endif

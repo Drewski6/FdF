@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   fdf_render_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:34:37 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/08 19:23:28 by dpentlan         ###   ########.fr       */
+/*   Created: 2023/06/08 18:04:55 by dpentlan          #+#    #+#             */
+/*   Updated: 2023/06/08 19:23:46 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	system_init(t_master *master)
+int	draw_map(t_master *master)
 {
-	init_master(master);
-	init_win(master);
-	draw_map(master);
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_master	master;
-
-	if (argc != 2)
-		error_fdf_putstr("Usage: ./fdf [map_file_path]\n");
-	read_in_map(&master, argv[1]);
-	system_init(&master);
-	mlx_key_hook(master.win.win_ptr, &key_press, (void *)&master);
-	mlx_loop(master.win.mlx_ptr);
+	if (master) {}
 	return (0);
 }
