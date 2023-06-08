@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/07 19:34:30 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:32:35 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,13 @@ int read_in_map(t_master *master, char *filename)
     fd = open(filename, O_RDONLY);
     if (fd < 2)
         error_fdf(master, "open");
+    ft_printf("Reading in map file.\n");
     read_lines(master, fd);
     fdf_debug_print_read_in_file(master);
     if (build_points_list(master))
         error_fdf(master, "malloc");
+    read_points_data(master);
+    free(master->map.points);
     ft_lstclear(&(master->map.buf), &ft_free_tab);
     close(fd);
     return (0);

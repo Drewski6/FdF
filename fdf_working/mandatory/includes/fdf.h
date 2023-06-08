@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/07 19:36:14 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:32:25 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@
 # define ENTER 65293
 
 //  sub structs
+typedef struct      s_point {
+    int             x;
+    int             y;
+    int             z;
+    struct s_point  *next;
+}                   t_point;
+//
 typedef struct  s_map
 {
     t_list      *buf;
+    t_point     *points;
     int         size_x;
     int         size_y;
     int         size_z;
@@ -72,6 +80,10 @@ int     read_in_map(t_master *master, char *filename);
 void    fdf_debug_print_read_in_file(t_master *master);
 
 //  fdf_points_utils.c
-int build_points_list(t_master *master);
+int     read_points_data(t_master *master);
+int     get_y_len(t_master *master);
+int     get_x_len(t_master *master);
+int     build_points_list_loop(t_master *master);
+int     build_points_list(t_master *master);
 
 #endif
