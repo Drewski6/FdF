@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/08 13:32:35 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:43:18 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_free_tab(void *table)
 {
-	int	i;
-    char    **tab;
+	int		i;
+	char	**tab;
 
 	i = 0;
-    tab = (char **)table;
+	tab = (char **)table;
 	while (tab[i])
 	{
 		free(tab[i]);
@@ -28,61 +28,60 @@ void	ft_free_tab(void *table)
 	return ;
 }
 
-int map_buf_add(t_master *master, char **tab)
+int	map_buf_add(t_master *master, char **tab)
 {
-    t_list  *new_node;
+	t_list	*new_node;
 
-    new_node = ft_lstnew((void *)tab);
-    if (!new_node)
-        error_fdf(master, "malloc");
-    ft_lstadd_back(&(master->map.buf), new_node);
-    return (0);
+	new_node = ft_lstnew((void *)tab);
+	if (!new_node)
+		error_fdf(master, "malloc");
+	ft_lstadd_back(&(master->map.buf), new_node);
+	return (0);
 }
 
-int read_lines(t_master *master, int fd)
+int	read_lines(t_master *master, int fd)
 {
-    int     n_lines;
-    char    *st_line;
-    char    **tab_line;
-    char    *nl;
+	int		n_lines;
+	char	*st_line;
+	char	**tab_line;
+	char	*nl;
 
-    n_lines = 0;
-    st_line = 0;
-    tab_line = 0;
-    while (n_lines < 1 || st_line)
-    {
-        st_line = get_next_line(fd, 0);
-        if (!st_line)
-            break ;
-        nl = ft_strchr(st_line, '\n');
-        if (nl)
-            ft_memset(nl, 0, 1);
-        tab_line = ft_split(st_line, ' ');
-        if (!tab_line)
-            error_fdf(master, "malloc");
-        free(st_line);
-        if (map_buf_add(master, tab_line))
-            error_fdf(master, "malloc");
-    }
-    get_next_line(fd, 1);
-    return (0);
+	n_lines = 0;
+	st_line = 0;
+	tab_line = 0;
+	while (n_lines < 1 || st_line)
+	{
+		st_line = get_next_line(fd, 0);
+		if (!st_line)
+			break ;
+		nl = ft_strchr(st_line, '\n');
+		if (nl)
+			ft_memset(nl, 0, 1);
+		tab_line = ft_split(st_line, ' ');
+		if (!tab_line)
+			error_fdf(master, "malloc");
+		free(st_line);
+		if (map_buf_add(master, tab_line))
+			error_fdf(master, "malloc");
+	}
+	get_next_line(fd, 1);
+	return (0);
 }
 
-int read_in_map(t_master *master, char *filename)
+int	read_in_map(t_master *master, char *filename)
 {
-    int fd;
+	int	fd;
 
-    fd = open(filename, O_RDONLY);
-    if (fd < 2)
-        error_fdf(master, "open");
-    ft_printf("Reading in map file.\n");
-    read_lines(master, fd);
-    fdf_debug_print_read_in_file(master);
-    if (build_points_list(master))
-        error_fdf(master, "malloc");
-    read_points_data(master);
-    free(master->map.points);
-    ft_lstclear(&(master->map.buf), &ft_free_tab);
-    close(fd);
-    return (0);
+	fd = open(filename, O_RDONLY);
+	if (fd < 2)
+		error_fdf(master, "open");
+	ft_printf("Reading in map file.\n");
+	read_lines(master, fd);
+	fdf_debug_print_read_in_file(master);
+	if (build_points_list(master))
+		error_fdf(master, "malloc");
+	fdf_debug_read_points_data(master);
+	ft_lstclear(&(master->map.buf), &ft_free_tab);
+	close(fd);
+	return (0);
 }
