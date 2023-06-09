@@ -6,13 +6,13 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/08 19:21:01 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:33:08 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define DEBUG 1
+# define DEBUG
 
 # include "../../libft/includes/libft.h"
 # include "mlx.h"
@@ -26,6 +26,16 @@
 //  Key Press Macros
 # define ESC 65307
 # define ENTER 65293
+
+//	draw structs
+typedef struct s_box
+{
+	int			x_start;
+	int			y_start;
+	int			x_length;
+	int			y_length;
+	int			color[3];
+}				t_box;
 
 //  sub structs
 typedef struct s_point
@@ -45,6 +55,15 @@ typedef struct s_map
 	int			size_z;
 }				t_map;
 
+typedef struct s_bitmap
+{
+	void		*img_ptr;
+	char		*img_buf;
+	int			bits_per_pixel;
+	int			size_line;
+	int			endian;
+}				t_bitmap;
+
 typedef struct s_win
 {
 	void		*mlx_ptr;
@@ -56,6 +75,7 @@ typedef struct s_master
 {
 	t_win		win;
 	t_map		map;
+	t_bitmap	bitmap;
 }				t_master;
 
 //  Function Declarations  //
@@ -66,11 +86,12 @@ typedef struct s_master
 int		error_fdf(t_master *master, char *message);
 int		error_fdf_putstr(char *message);
 void	close_program(t_master *master);
+void	init_master(t_master *master);
 
 //  fdf_win_utils.c
+int		mouse_usage(int button, int x, int y, void *param);
 int		key_press(int key, void *param);
 int		init_win(t_master *master);
-void	init_master(t_master *master);
 
 //  fdf_map_utils.c
 void	ft_free_tab(void *table);
@@ -90,6 +111,14 @@ int		build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
 
 //	fdf_render_utils.c
+int		rgb(const char r, const char g, const char b);
+int		create_box(t_box *box, int n, ...);
+int		draw_box(t_master *master, t_box *box);
+int		draw_text(t_master *master, char *str);
 int		draw_map(t_master *master);
+
+//	fdf_img_utils.c
+int		init_img_buffer(t_master *master);
+int		create_image(t_master *master);
 
 #endif
