@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:33:08 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:28:59 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ int		draw_map(t_master *master);
 
 //	fdf_img_utils.c
 int		init_img_buffer(t_master *master);
+int		edit_img(t_master *master);
+int		draw_img(t_master *master);
 int		create_image(t_master *master);
 
 #endif

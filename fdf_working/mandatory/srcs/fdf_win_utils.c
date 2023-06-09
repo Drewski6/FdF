@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 14:24:04 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:44:54 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,11 @@ int	key_press(int key, void *param)
 
 	i++;
 	master = (t_master *)param;
-	if (i > 1)
-	{
-		if (key == ESC)
-			close_program(master);
-		if (key == ENTER)
-			ft_printf("You pressed ENTER\n");
-		ft_printf("Key: %d i: %d\n", key, i);
-	}
+	if (key == ESC)
+		close_program(master);
+	if (key == ENTER)
+		ft_printf("You pressed ENTER\n");
+	ft_printf("Key: %d i: %d\n", key, i);
 	return (0);
 }
 

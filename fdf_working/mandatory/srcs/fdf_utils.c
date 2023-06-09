@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:17:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:42:28 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:04:36 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 int	error_fdf(t_master *master, char *message)
 {
 	if (master->win.win_ptr)
-	{
 		mlx_destroy_window(master->win.mlx_ptr, master->win.win_ptr);
-		master->win.win_ptr = 0;
-	}
+	if (master->bitmap.img_ptr)
+		mlx_destroy_image(master->win.mlx_ptr, master->bitmap.img_ptr);
 	if (master->win.mlx_ptr)
 	{
 		mlx_destroy_display(master->win.mlx_ptr);
@@ -28,10 +27,7 @@ int	error_fdf(t_master *master, char *message)
 	if (master->map.buf)
 		ft_lstclear(&(master->map.buf), &ft_free_tab);
 	if (master->map.points)
-	{
 		free(master->map.points);
-		master->map.points = 0;
-	}
 	if (message)
 		perror(message);
 	exit(EXIT_FAILURE);

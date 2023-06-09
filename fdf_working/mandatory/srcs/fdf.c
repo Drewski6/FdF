@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:34:37 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:45:33 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:26:28 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	system_init(t_master *master)
 	init_img_buffer(master);
 	draw_map(master);
 	create_image(master);
+	draw_img(master);
 	return (0);
 }
 
