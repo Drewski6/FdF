@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 16:28:59 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 07:58:05 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ typedef struct s_master
 int		error_fdf(t_master *master, char *message);
 int		error_fdf_putstr(char *message);
 void	close_program(t_master *master);
-void	init_master(t_master *master);
 
 //  fdf_win_utils.c
 int		mouse_usage(int button, int x, int y, void *param);

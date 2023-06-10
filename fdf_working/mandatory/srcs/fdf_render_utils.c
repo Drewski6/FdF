@@ -6,11 +6,13 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:04:55 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 07:53:27 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 08:01:50 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+// none of the functions here are usefull yet. Just made for testing drawing.
 
 int	rgb(const char r, const char g, const char b)
 {
@@ -93,11 +95,6 @@ int	draw_text(t_master *master, char *str)
 		500, 500, rgb(255, 255, 255), str);
 	return (0);
 }
-
-/*
-*	right now this is just for testing various drawing functions.
-*
-*/
 
 int	draw_map(t_master *master)
 {

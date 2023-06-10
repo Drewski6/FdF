@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:25:46 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 07:50:37 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 08:00:51 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	init_img_buffer(t_master *master)
 			&master->bitmap.endian);
 	return (0);
 }
+
+// below functions are useless so far. Just made them for testing drawing.
 
 int	edit_img(t_master *master)
 {

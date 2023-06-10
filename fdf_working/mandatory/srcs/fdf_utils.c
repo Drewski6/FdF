@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:17:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 16:04:36 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 07:57:53 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,4 @@ void	close_program(t_master *master)
 		master->map.points = 0;
 	}
 	exit(0);
-}
-
-void	init_master(t_master *master)
-{
-	master->map.buf = 0;
-	master->map.points = 0;
 }
