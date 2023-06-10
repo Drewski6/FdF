@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:04:55 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:43:24 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 07:53:27 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	rgb(const char r, const char g, const char b)
 **	
 **	Variadic function
 **	takes pointer to box, number of int arguments that follow
-**	varaible number of int arguments, each corresponding to a varaible to overwrite
+**	varaible number of int arguments, each corresponding to a varaible 
+**	to overwrite
 **/
 
 int	create_box(t_box *box, int n, ...)
@@ -43,7 +44,6 @@ int	create_box(t_box *box, int n, ...)
 	va_list		parg;
 	int			new_val;
 	int			*pos;
-
 
 	pos = (int *)box;
 	va_start(parg, n);
@@ -71,7 +71,7 @@ int	draw_box(t_master *master, t_box *box)
 {
 	int	x;
 	int	y;
-	
+
 	x = box->x_start + box->x_length;
 	while (x-- > box->x_start)
 	{
@@ -79,7 +79,7 @@ int	draw_box(t_master *master, t_box *box)
 		while (y-- > box->y_start)
 		{
 			mlx_pixel_put(master->win.mlx_ptr, master->win.win_ptr,
-				 x, y, rgb(box->color[0], box->color[1], box->color[2]));
+				x, y, rgb(box->color[0], box->color[1], box->color[2]));
 		}
 	}
 	return (0);
@@ -89,7 +89,8 @@ int	draw_text(t_master *master, char *str)
 {
 	if (!str)
 		return (-1);
-	mlx_string_put(master->win.mlx_ptr, master->win.win_ptr, 500, 500, rgb(255, 255, 255), str);
+	mlx_string_put(master->win.mlx_ptr, master->win.win_ptr,
+		500, 500, rgb(255, 255, 255), str);
 	return (0);
 }
 

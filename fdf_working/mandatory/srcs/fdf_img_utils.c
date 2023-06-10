@@ -6,15 +6,17 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:25:46 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/09 16:43:35 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 07:50:37 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 /*
- *	the address returned by mlx_get_data_addr contains pixel data for an image of whatever size you gave it.
- *	To edit you need to access the address and iterate over it depending on each pixel size.
+ *	the address returned by mlx_get_data_addr contains pixel data for 
+ *	an image of whatever size you gave it.
+ *	To edit you need to access the address and iterate over it depending 
+ *	on each pixel size.
  */
 
 int	init_img_buffer(t_master *master)
@@ -40,7 +42,6 @@ int	edit_img(t_master *master)
 	ft_printf("img_buf addr = %x\n", (int *)img_buf);
 	img_buf += 1;
 	ft_printf("img_buf addr +1 = %d\n", (int *)img_buf);
-	
 	return (0);
 }
 
@@ -48,19 +49,16 @@ int	draw_img(t_master *master)
 {
 	edit_img(master);
 	mlx_put_image_to_window(master->win.mlx_ptr,
-			master->win.win_ptr,
-			master->bitmap.img_ptr,
-			0, 0);
+		master->win.win_ptr,
+		master->bitmap.img_ptr,
+		50, 50);
 	return (0);
 }
 
 int	create_image(t_master *master)
 {
-	if (master) {}
-	ft_printf("something something darkside...\n");
 	ft_printf("bits_per_pixel = %d\n", master->bitmap.bits_per_pixel);
 	ft_printf("size_line = %d\n", master->bitmap.size_line);
 	ft_printf("endian = %d\n", master->bitmap.endian);
 	return (0);
 }
-
