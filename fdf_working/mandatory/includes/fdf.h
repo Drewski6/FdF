@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 08:13:56 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 08:31:41 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,10 @@ int		build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
 
 //	fdf_render_utils.c
+int		render_map(t_master *master);
 
 //	fdf_img_utils.c
-int		init_img_buffer(t_master *master);
+int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
 
 //  fdf_debug_utils.c
 void	fdf_debug_print_read_in_file(t_master *master);
