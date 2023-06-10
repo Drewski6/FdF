@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 07:58:05 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 08:06:56 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,6 @@ int		map_buf_add(t_master *master, char **tab);
 int		read_lines(t_master *master, int fd);
 int		read_in_map(t_master *master, char *filename);
 
-//  fdf_debug_utils.c
-void	fdf_debug_print_read_in_file(t_master *master);
-int		fdf_debug_read_points_data(t_master *master);
-
 //  fdf_points_utils.c
 int		points_largest_z(t_master *master);
 int		get_y_len(t_master *master);
@@ -121,5 +117,9 @@ int		init_img_buffer(t_master *master);
 int		edit_img(t_master *master);
 int		draw_img(t_master *master);
 int		create_image(t_master *master);
+
+//  fdf_debug_utils.c
+void	fdf_debug_print_read_in_file(t_master *master);
+int		fdf_debug_read_points_data(t_master *master);
 
 #endif
