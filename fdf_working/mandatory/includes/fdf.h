@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 08:06:56 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/10 08:13:56 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,20 +106,22 @@ int		build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
 
 //	fdf_render_utils.c
+
+//	fdf_img_utils.c
+int		init_img_buffer(t_master *master);
+
+//  fdf_debug_utils.c
+void	fdf_debug_print_read_in_file(t_master *master);
+int		fdf_debug_read_points_data(t_master *master);
+
+//	fdf_saved_*.c		// saved functions for testing purposes.
+int		edit_img(t_master *master);
+int		draw_img(t_master *master);
+int		create_image(t_master *master);
 int		rgb(const char r, const char g, const char b);
 int		create_box(t_box *box, int n, ...);
 int		draw_box(t_master *master, t_box *box);
 int		draw_text(t_master *master, char *str);
 int		draw_map(t_master *master);
-
-//	fdf_img_utils.c
-int		init_img_buffer(t_master *master);
-int		edit_img(t_master *master);
-int		draw_img(t_master *master);
-int		create_image(t_master *master);
-
-//  fdf_debug_utils.c
-void	fdf_debug_print_read_in_file(t_master *master);
-int		fdf_debug_read_points_data(t_master *master);
 
 #endif
