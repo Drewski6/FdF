@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 08:31:41 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:06:02 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@
 //  Key Press Macros
 # define ESC 65307
 # define ENTER 65293
-
-//	draw structs
-typedef struct s_box
-{
-	int			x_start;
-	int			y_start;
-	int			x_length;
-	int			y_length;
-	int			color[3];
-}				t_box;
 
 //  sub structs
 typedef struct s_point
@@ -115,14 +105,14 @@ int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
 void	fdf_debug_print_read_in_file(t_master *master);
 int		fdf_debug_read_points_data(t_master *master);
 
-//	fdf_saved_*.c		// saved functions for testing purposes.
-int		edit_img(t_master *master);
-int		draw_img(t_master *master);
-int		create_image(t_master *master);
-int		rgb(const char r, const char g, const char b);
-int		create_box(t_box *box, int n, ...);
-int		draw_box(t_master *master, t_box *box);
-int		draw_text(t_master *master, char *str);
-int		draw_map(t_master *master);
+//	fdf_saved_*.c		// saved functions for testing purposes. removed 
+// int		edit_img(t_master *master);
+// int		draw_img(t_master *master);
+// int		create_image(t_master *master);
+// int		rgb(const char r, const char g, const char b);
+// int		create_box(t_box *box, int n, ...);
+// int		draw_box(t_master *master, t_box *box);
+// int		draw_text(t_master *master, char *str);
+// int		draw_map(t_master *master);
 
 #endif

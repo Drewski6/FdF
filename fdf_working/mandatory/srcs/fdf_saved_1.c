@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:08:49 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 08:09:39 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:04:51 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,51 +41,51 @@ int	rgb(const char r, const char g, const char b)
 **	to overwrite
 **/
 
-int	create_box(t_box *box, int n, ...)
-{
-	va_list		parg;
-	int			new_val;
-	int			*pos;
+// int	create_box(t_box *box, int n, ...)
+// {
+// 	va_list		parg;
+// 	int			new_val;
+// 	int			*pos;
+//
+// 	pos = (int *)box;
+// 	va_start(parg, n);
+// 	box->x_start = 100;
+// 	box->y_start = 100;
+// 	box->x_length = 100;
+// 	box->y_length = 100;
+// 	box->color[0] = 0;
+// 	box->color[1] = 102;
+// 	box->color[2] = 255;
+// 	while (n-- > 0)
+// 	{
+// 		new_val = va_arg(parg, int);
+// 		if (new_val >= 0)
+// 		{
+// 			*pos = new_val;
+// 			pos++;
+// 		}
+// 	}
+// 	va_end(parg);
+// 	return (0);
+// }
 
-	pos = (int *)box;
-	va_start(parg, n);
-	box->x_start = 100;
-	box->y_start = 100;
-	box->x_length = 100;
-	box->y_length = 100;
-	box->color[0] = 0;
-	box->color[1] = 102;
-	box->color[2] = 255;
-	while (n-- > 0)
-	{
-		new_val = va_arg(parg, int);
-		if (new_val >= 0)
-		{
-			*pos = new_val;
-			pos++;
-		}
-	}
-	va_end(parg);
-	return (0);
-}
-
-int	draw_box(t_master *master, t_box *box)
-{
-	int	x;
-	int	y;
-
-	x = box->x_start + box->x_length;
-	while (x-- > box->x_start)
-	{
-		y = box->y_start + box->y_length;
-		while (y-- > box->y_start)
-		{
-			mlx_pixel_put(master->win.mlx_ptr, master->win.win_ptr,
-				x, y, rgb(box->color[0], box->color[1], box->color[2]));
-		}
-	}
-	return (0);
-}
+// int	draw_box(t_master *master, t_box *box)
+// {
+// 	int	x;
+// 	int	y;
+//
+// 	x = box->x_start + box->x_length;
+// 	while (x-- > box->x_start)
+// 	{
+// 		y = box->y_start + box->y_length;
+// 		while (y-- > box->y_start)
+// 		{
+// 			mlx_pixel_put(master->win.mlx_ptr, master->win.win_ptr,
+// 				x, y, rgb(box->color[0], box->color[1], box->color[2]));
+// 		}
+// 	}
+// 	return (0);
+// }
 
 int	draw_text(t_master *master, char *str)
 {
@@ -96,12 +96,12 @@ int	draw_text(t_master *master, char *str)
 	return (0);
 }
 
-int	draw_map(t_master *master)
-{
-	t_box	box;
-
-	create_box(&box, 0);
-	draw_box(master, &box);
-	draw_text(master, "Oh hey there!!!");
-	return (0);
-}
+// int	draw_map(t_master *master)
+// {
+// 	t_box	box;
+//
+// 	create_box(&box, 0);
+// 	draw_box(master, &box);
+// 	draw_text(master, "Oh hey there!!!");
+// 	return (0);
+// }
