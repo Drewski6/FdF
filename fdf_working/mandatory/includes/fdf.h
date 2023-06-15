@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 17:10:45 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:53:47 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,16 @@ int		build_points_list(t_master *master);
 
 //	fdf_render_utils.c
 int		get_local_color(t_master *master, int color);
+int		render_background(t_master *master);
 int		render_map(t_master *master);
 
 //	fdf_render_str_utils.c
+int		printer_find_nl(char *str);
+int		printer(t_master *master, char *str);
 int		render_strings(t_master *master);
+
+//	fdf_render_line_utils.c
+int		render_lines(t_master *master);
 
 //	fdf_img_utils.c
 int		set_px_color_img_buf(t_master *master, int color, int x, int y);

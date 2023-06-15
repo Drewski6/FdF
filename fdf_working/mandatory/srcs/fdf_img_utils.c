@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:25:46 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 14:14:06 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:57:55 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	set_px_color_img_buf(t_master *master, int color, int x, int y)
 {
 	int	offset;
 
-	offset = ( y * master->bitmap.size_line ) + ( x * 4 );
+	offset = (y * master->bitmap.size_line) + (x * 4);
 	if (master->bitmap.endian == 1)
 	{
 		master->bitmap.img_buf[offset + 0] = 1;
@@ -38,7 +38,6 @@ int	set_px_color_img_buf(t_master *master, int color, int x, int y)
 		master->bitmap.img_buf[offset + 2] = (color >> 16) & 0xFF;
 		master->bitmap.img_buf[offset + 3] = 1;
 	}
-
 	return (0);
 }
 

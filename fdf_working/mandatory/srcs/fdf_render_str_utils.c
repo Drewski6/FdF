@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 17:42:34 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:57:30 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	printer(t_master *master, char *str)
 			error_fdf(master, "malloc");
 		ft_memcpy(buf, &str[snip_start], snip_size);
 		mlx_string_put(master->win.mlx_ptr, master->win.win_ptr, x, y,
-				TEXT_COLOR, buf);
+			TEXT_COLOR, buf);
 		free(buf);
-		snip_start += ( snip_size + 1 );
+		snip_start += (snip_size + 1);
 		y += 15;
 	}
 	return (0);
@@ -53,18 +53,19 @@ int	printer(t_master *master, char *str)
 
 int	render_strings(t_master *master)
 {
-	printer(master, "##### FDF #####\n\
+	printer(master, "\
+###### FDF ######\n\
+\n\
 By Drew Pentland\n\
 \n\
+###### CONTROLS ######\n\
 \n\
+ESC             EXIT\n\
 \n\
+###### SETTINGS ######\n\
 \n\
+WINDOW WIDTH:   WIN_X\n\
 \n\
-\n\
-\n\
-\n\
-\n\
-Hello after a few lines.");
+");
 	return (0);
 }
-
