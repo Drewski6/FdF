@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 16:57:49 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:10:45 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define WIN_Y			1080
 # define WIN_MENU_WIDTH	400
 # define WIN_NAME		"FdF *dpentlan*"
+# define PRINT_ORIGIN_X	100
+# define PRINT_ORIGIN_Y	100
 
 //	Key Press Macros
 # define ESC			65307
