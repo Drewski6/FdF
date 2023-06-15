@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:25:46 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 08:30:29 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:14:06 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,29 @@
  *	To edit you need to access the address and iterate over it depending 
  *	on each pixel size.
  */
+
+int	set_px_color_img_buf(t_master *master, int color, int x, int y)
+{
+	int	offset;
+
+	offset = ( y * master->bitmap.size_line ) + ( x * 4 );
+	if (master->bitmap.endian == 1)
+	{
+		master->bitmap.img_buf[offset + 0] = 1;
+		master->bitmap.img_buf[offset + 1] = (color >> 16) & 0xFF;
+		master->bitmap.img_buf[offset + 2] = (color >> 8) & 0xFF;
+		master->bitmap.img_buf[offset + 3] = color & 0xFF;
+	}
+	else
+	{
+		master->bitmap.img_buf[offset + 0] = color & 0xFF;
+		master->bitmap.img_buf[offset + 1] = (color >> 8) & 0xFF;
+		master->bitmap.img_buf[offset + 2] = (color >> 16) & 0xFF;
+		master->bitmap.img_buf[offset + 3] = 1;
+	}
+
+	return (0);
+}
 
 int	init_img_buffer(t_master *master, int img_size_x, int img_size_y)
 {

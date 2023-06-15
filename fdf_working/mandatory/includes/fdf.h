@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/14 19:06:02 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:57:49 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,24 @@
 # include "mlx.h"
 # include "mlx_int.h"
 
-//  Window Param Macros
-# define WIN_X 1000
-# define WIN_Y 1000
-# define WIN_NAME "My First Window"
+//	Define Colors
+# define GREEN			0x66ff33
 
-//  Key Press Macros
-# define ESC 65307
-# define ENTER 65293
+# define TEXT_COLOR		0xFFFFFF
+# define BG_COLOR		0x000033
+# define MENU_COLOR		0x663300
 
-//  sub structs
+//	Window Param Macros
+# define WIN_X			1920
+# define WIN_Y			1080
+# define WIN_MENU_WIDTH	400
+# define WIN_NAME		"FdF *dpentlan*"
+
+//	Key Press Macros
+# define ESC			65307
+# define ENTER			65293
+
+//	Sub Structs
 typedef struct s_point
 {
 	int				x;
@@ -52,6 +60,8 @@ typedef struct s_bitmap
 	int			bits_per_pixel;
 	int			size_line;
 	int			endian;
+	int			bg_color;
+	int			menu_color;
 }				t_bitmap;
 
 typedef struct s_win
@@ -85,6 +95,7 @@ int		init_win(t_master *master);
 //  fdf_map_utils.c
 void	ft_free_tab(void *table);
 int		map_buf_add(t_master *master, char **tab);
+int		init_map(t_master *master);
 int		read_lines(t_master *master, int fd);
 int		read_in_map(t_master *master, char *filename);
 
@@ -96,23 +107,18 @@ int		build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
 
 //	fdf_render_utils.c
+int		get_local_color(t_master *master, int color);
 int		render_map(t_master *master);
 
+//	fdf_render_str_utils.c
+int		render_strings(t_master *master);
+
 //	fdf_img_utils.c
+int		set_px_color_img_buf(t_master *master, int color, int x, int y);
 int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
 
 //  fdf_debug_utils.c
 void	fdf_debug_print_read_in_file(t_master *master);
 int		fdf_debug_read_points_data(t_master *master);
-
-//	fdf_saved_*.c		// saved functions for testing purposes. removed 
-// int		edit_img(t_master *master);
-// int		draw_img(t_master *master);
-// int		create_image(t_master *master);
-// int		rgb(const char r, const char g, const char b);
-// int		create_box(t_box *box, int n, ...);
-// int		draw_box(t_master *master, t_box *box);
-// int		draw_text(t_master *master, char *str);
-// int		draw_map(t_master *master);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:34:37 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 08:30:46 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:46:06 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	system_init(t_master *master)
 {
-	master->map.buf = 0;
-	master->map.points = 0;
+	init_map(master);
 	init_win(master);
-	init_img_buffer(master, 1000, 1000);
+	init_img_buffer(master, WIN_X, WIN_Y);
 	return (0);
 }
 
