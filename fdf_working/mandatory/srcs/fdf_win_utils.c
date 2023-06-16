@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 19:02:00 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:56:02 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	mouse_usage(int button, int x, int y, void *param)
 
 	i++;
 	master = (t_master *)param;
-	if (master) {}
+	if (master)
+	{
+	}
 	if (button == 1)
 	{
 	}

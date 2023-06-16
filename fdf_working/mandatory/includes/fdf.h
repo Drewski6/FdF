@@ -6,17 +6,18 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 18:53:47 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:19:27 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define DEBUG
+# define DEBUG 1
 
 # include "../../libft/includes/libft.h"
 # include "mlx.h"
 # include "mlx_int.h"
+# include <time.h>
 
 //	Define Colors
 # define GREEN			0x66ff33
@@ -32,6 +33,7 @@
 # define WIN_NAME		"FdF *dpentlan*"
 # define PRINT_ORIGIN_X	100
 # define PRINT_ORIGIN_Y	100
+# define MAP_MARGIN		100
 
 //	Key Press Macros
 # define ESC			65307
@@ -40,9 +42,9 @@
 //	Sub Structs
 typedef struct s_point
 {
-	int				x;
-	int				y;
-	int				z;
+	float			x;
+	float			y;
+	float			z;
 	struct s_point	*next;
 }					t_point;
 
@@ -50,9 +52,13 @@ typedef struct s_map
 {
 	t_list		*buf;
 	t_point		*points;
+	t_point		*pnts_copy;
 	int			size_x;
 	int			size_y;
 	int			size_z;
+	int			map_size;
+	float		map_scale;
+	int			renders;
 }				t_map;
 
 typedef struct s_bitmap
@@ -95,9 +101,9 @@ int		key_press(int key, void *param);
 int		init_win(t_master *master);
 
 //  fdf_map_utils.c
+int		init_map(t_master *master);
 void	ft_free_tab(void *table);
 int		map_buf_add(t_master *master, char **tab);
-int		init_map(t_master *master);
 int		read_lines(t_master *master, int fd);
 int		read_in_map(t_master *master, char *filename);
 

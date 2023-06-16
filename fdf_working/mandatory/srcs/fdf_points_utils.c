@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 10:45:37 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:59:07 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ int	build_points_list(t_master *master)
 	master->map.size_x = get_x_len(master);
 	master->map.size_y = 0;
 	master->map.size_y = get_y_len(master);
+	master->map.map_size = master->map.size_x * master->map.size_y;
 	master->map.points = (t_point *)ft_calloc(sizeof(t_point),
-			master->map.size_x * master->map.size_y);
+			master->map.map_size);
 	if (!master->map.points)
 		error_fdf(master, "malloc");
 	build_points_list_loop(master);

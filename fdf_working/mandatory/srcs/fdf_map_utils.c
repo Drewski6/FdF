@@ -6,11 +6,24 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 13:47:41 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:15:11 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	init_map(t_master *master)
+{
+	master->map.buf = 0;
+	master->map.points = 0;
+	master->map.pnts_copy = 0;
+	master->map.map_size = 0;
+	master->map.map_scale = 1;
+	master->map.renders = 0;
+	master->bitmap.bg_color = BG_COLOR;
+	master->bitmap.menu_color = MENU_COLOR;
+	return (0);
+}
 
 void	ft_free_tab(void *table)
 {
@@ -36,15 +49,6 @@ int	map_buf_add(t_master *master, char **tab)
 	if (!new_node)
 		error_fdf(master, "malloc");
 	ft_lstadd_back(&(master->map.buf), new_node);
-	return (0);
-}
-
-int	init_map(t_master *master)
-{
-	master->map.buf = 0;
-	master->map.points = 0;
-	master->bitmap.bg_color = BG_COLOR;
-	master->bitmap.menu_color = MENU_COLOR;
 	return (0);
 }
 
@@ -79,8 +83,11 @@ int	read_lines(t_master *master, int fd)
 
 int	read_in_map(t_master *master, char *filename)
 {
-	int	fd;
+	int		fd;
+	clock_t	start_time;
 
+	if (DEBUG == 1)
+		start_time = clock();
 	fd = open(filename, O_RDONLY);
 	if (fd < 2)
 		error_fdf(master, "open");
@@ -90,5 +97,11 @@ int	read_in_map(t_master *master, char *filename)
 		error_fdf(master, "malloc");
 	ft_lstclear(&(master->map.buf), &ft_free_tab);
 	close(fd);
+	if (DEBUG == 1)
+	{
+		ft_printf("map read time:\t%d/%d s\n",
+			clock() - start_time, CLOCKS_PER_SEC);
+		ft_printf("map size:\t%d\n", master->map.map_size);
+	}
 	return (0);
 }

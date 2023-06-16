@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:04:55 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 14:32:16 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 08:55:40 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	render_background(t_master *master)
 int	render_map(t_master *master)
 {
 	render_background(master);
-	//	render_lines
+	render_lines(master);
 	mlx_put_image_to_window(master->win.mlx_ptr, master->win.win_ptr,
 		master->bitmap.img_ptr, 0, 0);
 	render_strings(master);
