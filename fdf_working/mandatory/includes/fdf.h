@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 12:32:23 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 20:00:15 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,16 @@ int		render_lines(t_master *master);
 //	fdf_img_utils.c
 int		set_px_color_img_buf(t_master *master, int color, int x, int y);
 int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
+
+//	fdf_la_funcs.c
+int		la_scale(t_master *master, t_point *cpy, float scalar);
+int		la_translation(t_master *master, t_point *translate);
+int		manipulate_points(t_master *master);
+
+//fdf_draw_lines_to_buffer_1.c
+int		map_fits(t_master *master);
+int		fit_map_to_screen(t_master *master);
+int		draw_lines(t_master *master);
 
 //  fdf_debug_utils.c
 void	fdf_debug_print_read_in_file(t_master *master);
