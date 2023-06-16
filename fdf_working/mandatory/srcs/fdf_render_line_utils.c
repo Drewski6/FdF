@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:49:52 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 12:16:31 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:51:04 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,12 @@ int	render_lines(t_master *master)
 	clock_t	start_time;
 
 	if (DEBUG == 1)
+	{
+		ft_printf("center point: x:%d, y:%d z:%d\n",
+			(int)master->map.center.x, (int)master->map.center.y,
+			(int)master->map.center.z);
 		start_time = clock();
+	}
 	copy_points(master);
 	manipulate_points(master);
 	draw_lines(master);

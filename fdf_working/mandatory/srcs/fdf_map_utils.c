@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 12:15:11 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:37:52 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	init_map(t_master *master)
 	master->map.renders = 0;
 	master->bitmap.bg_color = BG_COLOR;
 	master->bitmap.menu_color = MENU_COLOR;
+	master->map.center.x = ((WIN_X - WIN_MENU_WIDTH) / 2) + WIN_MENU_WIDTH;
+	master->map.center.y = WIN_Y / 2;
+	master->map.center.z = 0;
 	return (0);
 }
 
