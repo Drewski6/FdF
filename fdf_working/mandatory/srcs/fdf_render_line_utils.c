@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:49:52 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 20:01:33 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 21:16:37 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int	render_lines(t_master *master)
 		start_time = clock();
 	}
 	copy_points(master);
-	printf("First point before scalar: x:%f y:%f z:%f\n", master->map.pnts_copy->x,
+	printf("First point before man: x:%f y:%f z:%f\n", master->map.pnts_copy->x,
 		master->map.pnts_copy->y, master->map.pnts_copy->z);
 	printf("map scale:\t%f\n", master->map.map_scale);
 	manipulate_points(master);
 	draw_lines(master);
-	printf("First point after scalar: x:%f y:%f z:%f\n", master->map.pnts_copy->x,
+	printf("First point after man: x:%f y:%f z:%f\n", master->map.pnts_copy->x,
 		master->map.pnts_copy->y, master->map.pnts_copy->z);
 	printf("map scale:\t%f\n", master->map.map_scale);
 	free(master->map.pnts_copy);

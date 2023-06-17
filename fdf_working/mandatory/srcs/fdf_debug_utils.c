@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:39:38 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 16:06:15 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 22:41:31 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,10 @@ void	pa(t_master *master)
 		p(&master->map.pnts_copy[i]);
 		i++;
 	}
+}
+
+void	fresh(t_master *master)
+{
+	mlx_put_image_to_window(master->win.mlx_ptr, master->win.win_ptr,
+		master->bitmap.img_ptr, 0, 0);
 }

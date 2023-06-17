@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 15:40:29 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 23:37:15 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	init_map(t_master *master)
 	master->map.center.x = ((WIN_X - WIN_MENU_WIDTH) / 2) + WIN_MENU_WIDTH;
 	master->map.center.y = WIN_Y / 2;
 	master->map.center.z = 0;
+	master->map.origin.x = 0;
+	master->map.origin.y = 0;
+	master->map.origin.z = 0;
 	return (0);
 }
 

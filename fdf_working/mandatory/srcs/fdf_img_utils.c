@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:25:46 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 18:57:55 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 22:34:07 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	set_px_color_img_buf(t_master *master, int color, int x, int y)
 	}
 	else
 	{
-		master->bitmap.img_buf[offset + 0] = color & 0xFF;
+		master->bitmap.img_buf[offset + 1] = color & 0xFF;
 		master->bitmap.img_buf[offset + 1] = (color >> 8) & 0xFF;
 		master->bitmap.img_buf[offset + 2] = (color >> 16) & 0xFF;
 		master->bitmap.img_buf[offset + 3] = 1;

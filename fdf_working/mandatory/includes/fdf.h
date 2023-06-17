@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 18:43:07 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 23:24:54 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_map
 	t_point		*points;
 	t_point		*pnts_copy;
 	t_point		center;
+	t_point		origin;
 	int			size_x;
 	int			size_y;
 	int			size_z;

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 20:00:02 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/18 00:21:38 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ int	la_scale(t_master *master, t_point *cpy, float scalar)
 	i = 0;
 	while (i < master->map.map_size)
 	{
-		cpy[i].x = master->map.points[i].x * scalar;
-		cpy[i].y = master->map.points[i].y * scalar;
-		cpy[i].z = master->map.points[i].z * scalar;
+		cpy[i].x -= master->map.center.x;
+		cpy[i].x *= scalar;
+		cpy[i].x += master->map.center.x;
+		cpy[i].y -= master->map.center.y;
+		cpy[i].y *= scalar;
+		cpy[i].y += master->map.center.y;
+		cpy[i].z -= master->map.center.z;
+		cpy[i].z *= scalar;
+		cpy[i].z += master->map.center.z;
 		i++;
 	}
 	return (0);
@@ -60,9 +66,9 @@ int	la_translation(t_master *master, t_point *translate)
 
 int	manipulate_points(t_master *master)
 {
+	la_translation(master, &master->map.center);
 	if (master->map.map_scale != 1)
 		la_scale(master, master->map.pnts_copy, master->map.map_scale);
-	la_translation(master, &master->map.center);
 	return (0);
 }
 

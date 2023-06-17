@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 18:43:51 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/18 00:42:10 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	map_fits(t_master *master)
 
 int	fit_map_to_screen(t_master *master)
 {
+	if (master) {}
 	while (!map_fits(master))
 	{
 		master->map.map_scale += 0.2;
@@ -40,24 +41,44 @@ int	fit_map_to_screen(t_master *master)
 	return (0);
 }
 
+int	pixel_in_bounds(t_point *point)
+{
+	if ((int)point->x < 0 || (int)point->x > WIN_X)
+		return (0);
+	if ((int)point->y < 0 || (int)point->y > WIN_Y)
+		return (0);
+	return (1);
+}
+
+int	pixel_put(t_master *master, int color, int x, int y)
+{
+	if (x >= WIN_X || y >= WIN_Y ||x < 0 || y < 0)
+		return (-1);
+	set_px_color_img_buf(master, color, x, y);
+	return (0);
+}
+
 int	bresenhams_line(t_master *master, t_point from, t_point *to)
 {
-	if (master) {}
 	t_point	delta;
 	int		px_count;
-	//int		seg_len;
+	float	x;
+	float	y;
 
-	delta.x = from.x - to->x;
-	delta.y = from.y - to->y;
+	if (pixel_in_bounds(&from) == 0 && pixel_in_bounds(to) == 0)
+		return (0);
+	delta.x = to->x - from.x;
+	delta.y = to->y - from.y;
 	px_count = sqrt((delta.x * delta.x) + (delta.y * delta.y));
-	//seg_len = px_count;
 	delta.x /= px_count;
 	delta.x /= px_count;
+	x = from.x;
+	y = from.y;
 	while (px_count > 0)
 	{
-		set_px_color_img_buf(master, GREEN, from.x, from.y);
-		from.x += delta.x;
-		from.x += delta.y;
+		pixel_put(master, GREEN, (int)x, (int)y);
+		x += delta.x;
+		y += delta.y;
 		px_count--;
 	}
 	return (0);
@@ -80,7 +101,7 @@ int	iterate_over_points(t_master *master)
 	int	i;
 
 	i = 0;
-	while (i < master->map.map_size)
+	while (i < master->map.map_size - 1)
 	{
 		draw_lines_for_point(master, i);
 		i++;
