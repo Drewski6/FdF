@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 16:47:14 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 18:43:51 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,26 @@ int	fit_map_to_screen(t_master *master)
 	return (0);
 }
 
-int	drawline(t_master *master, t_point *from, t_point *to)
+int	bresenhams_line(t_master *master, t_point from, t_point *to)
 {
 	if (master) {}
-	if (from) {}
-	if (to) {}
-	ft_printf("I'm drawing a line from %d,%d to %d,%d\n",
-		   from->x_coord, from->y_coord,
-		   to->x_coord, to->y_coord);
+	t_point	delta;
+	int		px_count;
+	//int		seg_len;
+
+	delta.x = from.x - to->x;
+	delta.y = from.y - to->y;
+	px_count = sqrt((delta.x * delta.x) + (delta.y * delta.y));
+	//seg_len = px_count;
+	delta.x /= px_count;
+	delta.x /= px_count;
+	while (px_count > 0)
+	{
+		set_px_color_img_buf(master, GREEN, from.x, from.y);
+		from.x += delta.x;
+		from.x += delta.y;
+		px_count--;
+	}
 	return (0);
 }
 
@@ -57,9 +69,9 @@ int	draw_lines_for_point(t_master *master, int i)
 
 	point = &master->map.pnts_copy[i];
 	if ((point + 1)->x_coord)
-		drawline(master, point, (point + 1));
+		bresenhams_line(master, *point, (point + 1));
 	if (point->y_coord <= master->map.size_y - 2)
-		drawline(master, point, (point + master->map.size_x));
+		bresenhams_line(master, *point, (point + master->map.size_x));
 	return (0);
 }
 
