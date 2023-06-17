@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 20:00:15 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:05:59 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,20 @@ typedef struct s_point
 	float			x;
 	float			y;
 	float			z;
+	int				x_coord;
+	int				y_coord;
 	struct s_point	*next;
 }					t_point;
+
+typedef struct s_max_min
+{
+	float			x_max;
+	float			y_max;
+	float			z_max;
+	float			x_min;
+	float			y_min;
+	float			z_min;
+}				t_max_min;
 
 typedef struct s_map
 {
@@ -85,6 +97,7 @@ typedef struct s_master
 	t_win		win;
 	t_map		map;
 	t_bitmap	bitmap;
+	t_max_min	max_min;
 }				t_master;
 
 //  Function Declarations  //
@@ -103,6 +116,7 @@ int		init_win(t_master *master);
 
 //  fdf_map_utils.c
 int		init_map(t_master *master);
+int		init_max_min(t_master *master);
 void	ft_free_tab(void *table);
 int		map_buf_add(t_master *master, char **tab);
 int		read_lines(t_master *master, int fd);
@@ -145,5 +159,7 @@ int		draw_lines(t_master *master);
 //  fdf_debug_utils.c
 void	fdf_debug_print_read_in_file(t_master *master);
 int		fdf_debug_read_points_data(t_master *master);
+void	p(t_point *point);
+void	pa(t_master *master);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 11:59:07 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:10:18 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ int	build_points_list_loop(t_master *master)
 		while (++x < master->map.size_x)
 		{
 			points_current->x = x;
+			points_current->x_coord = x;
 			points_current->y = y;
+			points_current->y_coord = y;
 			points_current->z = ft_atoi(((char **)buf_current->content)[x]);
 			if (y == master->map.size_y - 1 && x == master->map.size_x - 1)
 				points_current->next = 0;

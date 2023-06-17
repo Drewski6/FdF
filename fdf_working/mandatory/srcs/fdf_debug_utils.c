@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:39:38 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/08 14:46:04 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:06:15 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,22 @@ void	fdf_debug_print_read_in_file(t_master *master)
 		}
 		ft_printf("\n");
 		current = current->next;
+	}
+}
+
+void	p(t_point *point)
+{
+	printf("x = %f\ny = %f\nz = %f\nx_coord = %d\ny_coord = %d\n", point->x, point->y, point->z, point->x_coord, point->y_coord);
+}
+
+void	pa(t_master *master)
+{
+	int	i;
+
+	i = 0;
+	while (i < master->map.map_size)
+	{
+		p(&master->map.pnts_copy[i]);
+		i++;
 	}
 }
