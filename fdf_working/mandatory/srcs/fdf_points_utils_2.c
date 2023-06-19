@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:25:50 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 13:26:58 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:18:43 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ int	build_points_get_x_len(t_master *master)
 	while (((char **)master->map.buf->content)[i])
 		i++;
 	return (i);
+}
+
+int	build_points_set_origin(t_master *master)
+{
+	master->map.origin.x = (float)master->map.size_x / 2;
+	master->map.origin.y = (float)master->map.size_y / 2;
+	master->map.origin.z = 0;
+	if (DEBUG == 1)
+		printf("origin x:%f y:%f z:%f\n", master->map.origin.x,
+			master->map.origin.y, master->map.origin.z);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 13:28:17 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:53:17 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # define WIN_Y			1080
 # define WIN_MENU_WIDTH	400
 # define WIN_NAME		"FdF *dpentlan*"
-# define PRINT_ORIGIN_X	100
-# define PRINT_ORIGIN_Y	100
+# define TEXT_ORIGIN_X	100
+# define TEXT_ORIGIN_Y	100
 # define MAP_MARGIN		100
 
 //	Key Press Macros
@@ -133,6 +133,7 @@ int		build_points_list(t_master *master);
 //  fdf_points_utils_2.c
 int		build_points_get_y_len(t_master *master);
 int		build_points_get_x_len(t_master *master);
+int		build_points_set_origin(t_master *master);
 
 //	fdf_render_utils.c
 int		get_local_color(t_master *master, int color);

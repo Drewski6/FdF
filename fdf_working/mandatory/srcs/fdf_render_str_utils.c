@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/15 18:57:30 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:40:57 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	printer(t_master *master, char *str)
 	int		snip_start;
 	char	*buf;
 
-	x = PRINT_ORIGIN_X + 0;
-	y = PRINT_ORIGIN_Y + 10;
+	x = TEXT_ORIGIN_X + 0;
+	y = TEXT_ORIGIN_Y + 10;
 	snip_start = 0;
 	snip_size = 0;
 	buf = 0;

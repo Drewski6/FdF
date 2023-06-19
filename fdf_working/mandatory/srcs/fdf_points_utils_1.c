@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 13:36:12 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:50:29 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int	build_points_list(t_master *master)
 		error_fdf(master, "malloc");
 	build_points_list_loop(master);
 	master->map.size_z = build_points_largest_z(master);
+	build_points_set_origin(master);
 	return (0);
 }
