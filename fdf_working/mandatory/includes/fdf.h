@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 23:24:54 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:28:17 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ typedef struct s_master
 int		error_fdf(t_master *master, char *message);
 int		error_fdf_putstr(char *message);
 void	close_program(t_master *master);
+void	ft_free_tab(void *table);
 
 //  fdf_win_utils.c
 int		mouse_usage(int button, int x, int y, void *param);
@@ -119,17 +120,19 @@ int		init_win(t_master *master);
 //  fdf_map_utils.c
 int		init_map(t_master *master);
 int		init_max_min(t_master *master);
-void	ft_free_tab(void *table);
 int		map_buf_add(t_master *master, char **tab);
 int		read_lines(t_master *master, int fd);
 int		read_in_map(t_master *master, char *filename);
 
-//  fdf_points_utils.c
-int		points_largest_z(t_master *master);
-int		get_y_len(t_master *master);
-int		get_x_len(t_master *master);
+//  fdf_points_utils_1.c
+int		build_points_largest_z(t_master *master);
+int		build_points_set_x_y(t_point *points_current, int x, int y);
 int		build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
+
+//  fdf_points_utils_2.c
+int		build_points_get_y_len(t_master *master);
+int		build_points_get_x_len(t_master *master);
 
 //	fdf_render_utils.c
 int		get_local_color(t_master *master, int color);
@@ -156,7 +159,16 @@ int		manipulate_points(t_master *master);
 //fdf_draw_lines_to_buffer_1.c
 int		map_fits(t_master *master);
 int		fit_map_to_screen(t_master *master);
+int		cmp_max_min(t_point *current, float *max_min);
+int		refresh_max_min(t_master *master);
 int		draw_lines(t_master *master);
+
+//fdf_draw_lines_to_buffer_2.c
+int		pixel_in_bounds(t_point *point);
+int		pixel_put(t_master *master, int color, int x, int y);
+int		bresenhams_line(t_master *master, t_point from, t_point *to);
+int		draw_lines_for_point(t_master *master, int i);
+int		iterate_over_points(t_master *master);
 
 //  fdf_debug_utils.c
 void	fdf_debug_print_read_in_file(t_master *master);

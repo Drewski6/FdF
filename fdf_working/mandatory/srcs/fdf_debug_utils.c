@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:39:38 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 22:41:31 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:38:28 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	fdf_debug_print_read_in_file(t_master *master)
 
 void	p(t_point *point)
 {
-	printf("x = %f\ny = %f\nz = %f\nx_coord = %d\ny_coord = %d\n", point->x, point->y, point->z, point->x_coord, point->y_coord);
+	printf("x = %f\ny = %f\nz = %f\nx_coord = %d\ny_coord = %d\n",
+		point->x, point->y, point->z, point->x_coord, point->y_coord);
 }
 
 void	pa(t_master *master)

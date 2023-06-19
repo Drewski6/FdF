@@ -6,13 +6,11 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 23:37:15 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:36:04 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-
 
 int	init_map(t_master *master)
 {
@@ -43,22 +41,6 @@ int	init_max_min(t_master *master)
 	master->max_min.y_min = 0;
 	master->max_min.z_min = 0;
 	return (0);
-}
-
-void	ft_free_tab(void *table)
-{
-	int		i;
-	char	**tab;
-
-	i = 0;
-	tab = (char **)table;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return ;
 }
 
 int	map_buf_add(t_master *master, char **tab)

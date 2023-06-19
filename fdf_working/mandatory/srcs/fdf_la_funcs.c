@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/18 00:21:38 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:34:39 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,3 @@ int	manipulate_points(t_master *master)
 		la_scale(master, master->map.pnts_copy, master->map.map_scale);
 	return (0);
 }
-

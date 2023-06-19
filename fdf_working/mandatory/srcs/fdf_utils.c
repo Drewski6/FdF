@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:17:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/10 07:57:53 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:36:13 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,20 @@ void	close_program(t_master *master)
 		master->map.points = 0;
 	}
 	exit(0);
+}
+
+void	ft_free_tab(void *table)
+{
+	int		i;
+	char	**tab;
+
+	i = 0;
+	tab = (char **)table;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return ;
 }

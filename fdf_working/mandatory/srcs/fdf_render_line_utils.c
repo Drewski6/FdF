@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:49:52 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/17 21:16:37 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:17:52 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,7 @@ int	render_lines(t_master *master)
 	clock_t	start_time;
 
 	if (DEBUG == 1)
-	{
-		ft_printf("center point: x:%d, y:%d z:%d\n",
-			(int)master->map.center.x,
-			(int)master->map.center.y,
-			(int)master->map.center.z);
 		start_time = clock();
-	}
 	copy_points(master);
 	printf("First point before man: x:%f y:%f z:%f\n", master->map.pnts_copy->x,
 		master->map.pnts_copy->y, master->map.pnts_copy->z);
