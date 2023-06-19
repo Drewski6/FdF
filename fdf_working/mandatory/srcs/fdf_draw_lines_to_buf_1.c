@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/18 00:42:10 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:16:53 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	bresenhams_line(t_master *master, t_point from, t_point *to)
 	delta.y = to->y - from.y;
 	px_count = sqrt((delta.x * delta.x) + (delta.y * delta.y));
 	delta.x /= px_count;
-	delta.x /= px_count;
+	delta.y /= px_count;
 	x = from.x;
 	y = from.y;
 	while (px_count > 0)
