@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:04:55 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 12:14:47 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:19:51 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	render_background(t_master *master)
 		}
 		y++;
 	}
-	printf("background color: menu_color: %d bg_color: %d color: %d\n", master->bitmap.menu_color, master->bitmap.bg_color, color); //DELETE
 	return (0);
 }
 

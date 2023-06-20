@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 12:18:08 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:36:21 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ int		set_px_color_img_buf(t_master *master, int color, int x, int y);
 int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
 
 //	fdf_la_funcs.c
-int		la_scale(t_master *master, float scalar);
+int		la_scale(t_master *master, int updn);
 int		la_translation(t_master *master, t_point *translate, int add);
 int		manipulate_points(t_master *master);
 

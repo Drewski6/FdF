@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 11:52:33 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:39:14 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 /*	
 **	linear algebra: apply scalar function to map
-**	
+**	updn is a flag that indicates if the scale functions should scale up or down
+**	0 indicates down, anything else indicates up
 **/
 
-int	la_scale(t_master *master, float scalar)
+int	la_scale(t_master *master, int updn)
 {
-	int	i;
+	int		i;
+	float	scalar;
 
 	i = 0;
+	if (updn == 0)
+		scalar = 1 / master->map.map_scale;
+	else
+		scalar = master->map.map_scale;
 	la_translation(master, &master->map.center, 0);
 	while (i < master->map.map_size)
 	{

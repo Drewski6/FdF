@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 11:57:18 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:38:45 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ int	map_fits(t_master *master)
 	i = 0;
 	while (i < master->map.map_size)
 	{
-		if (master->map.pnts_copy[i].x < (WIN_MENU_WIDTH + MAP_MARGIN)
-			|| master->map.pnts_copy[i].x > (WIN_X - MAP_MARGIN))
+		if (master->map.pnts_copy[i].x < (WIN_MENU_WIDTH + MAP_MARGIN))
 			return (1);
-		if (master->map.pnts_copy[i].y < MAP_MARGIN
-			|| master->map.pnts_copy[i].y > (WIN_Y - MAP_MARGIN))
+		if (master->map.pnts_copy[i].x > (WIN_X - MAP_MARGIN))
 			return (2);
+		if (master->map.pnts_copy[i].y < MAP_MARGIN)
+			return (3);
+		if (master->map.pnts_copy[i].y > (WIN_Y - MAP_MARGIN))
+			return (4);
 		i++;
 	}
 	return (0);
@@ -39,8 +41,9 @@ int	fit_map_to_screen(t_master *master)
 	br = 0;
 	while (!map_fits(master))
 	{
-		master->map.map_scale += 0.1;
-		la_scale(master, master->map.map_scale);
+		la_scale(master, 0);
+		master->map.map_scale += 0.2;
+		la_scale(master, 1);
 		i++;
 	}
 	br = map_fits(master);
