@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 14:48:51 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 22:36:42 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ int	map_fits(t_master *master)
 int	fit_map_to_screen(t_master *master)
 {
 	int	i;
-	int	br;
 
 	i = 0;
-	br = 0;
 	while (!map_fits(master))
 	{
 		la_translation(master, &master->map.origin, 1);
@@ -50,8 +48,6 @@ int	fit_map_to_screen(t_master *master)
 		la_translation(master, &master->map.origin, 0);
 		i++;
 	}
-	br = map_fits(master);
-	printf("scale set at %f: ran %d times: broke with %d\n", master->map.map_scale, i, br);
 	return (0);
 }
 
@@ -98,11 +94,12 @@ int	refresh_max_min(t_master *master)
 	return (0);
 }
 
+	//refresh_max_min(master);
+
 int	draw_lines(t_master *master)
 {
 	if (master->map.renders == 0)
 		fit_map_to_screen(master);
-	//refresh_max_min(master);
 	iterate_over_points(master);
 	return (0);
 }

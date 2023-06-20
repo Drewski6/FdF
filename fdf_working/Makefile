@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/19 13:25:43 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/06/20 22:34:41 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = fdf.c \
 	   fdf_draw_lines_to_buf_1.c \
 	   fdf_draw_lines_to_buf_2.c \
 	   fdf_img_utils.c \
-	   fdf_la_funcs.c \
+	   fdf_la_funcs_1.c \
+	   fdf_la_funcs_2.c \
 	   fdf_map_utils.c \
 	   fdf_points_utils_1.c \
 	   fdf_points_utils_2.c \

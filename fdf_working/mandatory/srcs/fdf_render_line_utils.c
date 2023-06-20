@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:49:52 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 14:44:39 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 22:33:02 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	render_lines(t_master *master)
 	copy_points(master);
 	manipulate_points(master);
 	draw_lines(master);
-	printf("coords of first x:%f y:%f z:%f\n", master->map.pnts_copy[0].x, master->map.pnts_copy[0].y, master->map.pnts_copy[0].z);
 	free(master->map.pnts_copy);
 	master->map.pnts_copy = 0;
 	master->map.renders++;

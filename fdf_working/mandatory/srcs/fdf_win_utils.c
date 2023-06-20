@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 16:00:18 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 22:46:45 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,26 @@ int	mouse_usage(int button, int x, int y, void *param)
 	return (0);
 }
 
+int	manipulation_control(t_master *master, int key)
+{
+	if (key == X_KEY)
+		master->map.x_rot += 15;
+	if (key == Y_KEY)
+		master->map.y_rot += 15;
+	if (key == Z_KEY)
+		master->map.z_rot += 15;
+	if (key == U_ARROW)
+		master->map.offset.y -= 10;
+	if (key == D_ARROW)
+		master->map.offset.y += 10;
+	if (key == L_ARROW)
+		master->map.offset.x -= 10;
+	if (key == R_ARROW)
+		master->map.offset.x += 10;
+	render_map(master);
+	return (0);
+}
+
 int	key_press(int key, void *param)
 {
 	t_master	*master;
@@ -42,43 +62,10 @@ int	key_press(int key, void *param)
 	{
 		if (i == 1)
 			return (0);
-		ft_printf("You pressed ENTER\n");
 	}
-	if (key == X_LC)
-	{
-		master->map.x_rot += 15;
-		render_map(master);
-	}
-	if (key == Y_LC)
-	{
-		master->map.y_rot += 15;
-		render_map(master);
-	}
-	if (key == Z_LC)
-	{
-		master->map.z_rot += 15;
-		render_map(master);
-	}
-	if (key == U_ARROW)
-	{
-		master->map.offset.y -= 10;
-		render_map(master);
-	}
-	if (key == D_ARROW)
-	{
-		master->map.offset.y += 10;
-		render_map(master);
-	}
-	if (key == L_ARROW)
-	{
-		master->map.offset.x -= 10;
-		render_map(master);
-	}
-	if (key == R_ARROW)
-	{
-		master->map.offset.x += 10;
-		render_map(master);
-	}
+	if (key == X_KEY || key == Y_KEY || key == Z_KEY || key == U_ARROW
+		|| key == D_ARROW || key == L_ARROW || key == R_ARROW)
+		manipulation_control(master, key);
 	ft_printf("Key: %d i: %d\n", key, i);
 	return (0);
 }

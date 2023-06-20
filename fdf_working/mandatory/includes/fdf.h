@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 15:35:05 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 22:48:02 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,9 @@
 # define U_ARROW		65362
 # define R_ARROW		65363
 # define D_ARROW		65364
-# define X_LC			120
-# define Y_LC			121
-# define Z_LC			119
-# define S_LC			115
-# define A_LC			113
-# define SIX_LC			45
+# define X_KEY			120
+# define Y_KEY			121
+# define Z_KEY			119
 
 //	Sub Structs
 typedef struct s_point
@@ -133,6 +130,7 @@ void	ft_free_tab(void *table);
 
 //  fdf_win_utils.c
 int		mouse_usage(int button, int x, int y, void *param);
+int		manipulation_control(t_master *master, int key);
 int		key_press(int key, void *param);
 int		init_win(t_master *master);
 
@@ -171,10 +169,17 @@ int		render_lines(t_master *master);
 int		set_px_color_img_buf(t_master *master, int color, int x, int y);
 int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
 
-//	fdf_la_funcs.c
+//	fdf_la_funcs_1.c
 int		la_scale(t_master *master, int updn);
 int		la_translation(t_master *master, t_point *translate, int add);
 int		manipulate_points(t_master *master);
+
+//	fdf_la_funcs_2.c
+int		la_matrix_init(float rot_mtx[3][3]);
+void	la_matrix_mult(float rot_mtx[3][3], t_point *point);
+int		la_x_rot(t_master *master, float ang_deg);
+int		la_y_rot(t_master *master, float ang_deg);
+int		la_z_rot(t_master *master, float ang_deg);
 
 //fdf_draw_lines_to_buffer_1.c
 int		map_fits(t_master *master);
