@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:27:54 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 12:32:49 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:15:22 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	bresenhams_line(t_master *master, t_point from, t_point *to)
 	y = from.y;
 	while (px_count > 0)
 	{
-		pixel_put(master, GREEN, (int)x, (int)y);
+		pixel_put(master, LINE_COLOR, (int)x, (int)y);
 		x += delta.x;
 		y += delta.y;
 		px_count--;

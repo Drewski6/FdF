@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 12:36:21 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:04:20 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define TEXT_COLOR		WHITE
 # define BG_COLOR		NAVY
 # define MENU_COLOR		BROWN
+# define LINE_COLOR		WHITE
 
 //	Window Param Macros
 # define WIN_X			1920
