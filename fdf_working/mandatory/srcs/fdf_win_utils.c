@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/16 09:56:02 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:57:47 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,21 @@ int	key_press(int key, void *param)
 		if (i == 1)
 			return (0);
 		ft_printf("You pressed ENTER\n");
+	}
+	if (key == X_LC)
+	{
+		master->map.x_rot += 15;
+		render_map(master);
+	}
+	if (key == Y_LC)
+	{
+		master->map.y_rot += 15;
+		render_map(master);
+	}
+	if (key == Z_LC)
+	{
+		master->map.z_rot += 15;
+		render_map(master);
 	}
 	ft_printf("Key: %d i: %d\n", key, i);
 	return (0);

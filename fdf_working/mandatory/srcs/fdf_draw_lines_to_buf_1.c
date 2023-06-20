@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 12:38:45 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:48:51 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,13 @@ int	fit_map_to_screen(t_master *master)
 	br = 0;
 	while (!map_fits(master))
 	{
+		la_translation(master, &master->map.origin, 1);
+		la_translation(master, &master->map.center, 0);
 		la_scale(master, 0);
 		master->map.map_scale += 0.2;
 		la_scale(master, 1);
+		la_translation(master, &master->map.center, 1);
+		la_translation(master, &master->map.origin, 0);
 		i++;
 	}
 	br = map_fits(master);

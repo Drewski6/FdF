@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 13:04:20 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:55:52 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@
 //	Key Press Macros
 # define ESC			65307
 # define ENTER			65293
+# define L_ARROW		65361
+# define U_ARROW		65362
+# define R_ARROW		65363
+# define D_ARROW		65364
+# define X_LC			120
+# define Y_LC			121
+# define Z_LC			119
 
 //	Sub Structs
 typedef struct s_point
@@ -79,6 +86,9 @@ typedef struct s_map
 	int			map_size;
 	float		map_scale;
 	int			renders;
+	float		x_rot;
+	float		y_rot;
+	float		z_rot;
 }				t_map;
 
 typedef struct s_bitmap
