@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 14:55:52 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:35:05 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@
 # define X_LC			120
 # define Y_LC			121
 # define Z_LC			119
+# define S_LC			115
+# define A_LC			113
+# define SIX_LC			45
 
 //	Sub Structs
 typedef struct s_point
@@ -80,6 +83,7 @@ typedef struct s_map
 	t_point		*pnts_copy;
 	t_point		center;
 	t_point		origin;
+	t_point		offset;
 	int			size_x;
 	int			size_y;
 	int			size_z;

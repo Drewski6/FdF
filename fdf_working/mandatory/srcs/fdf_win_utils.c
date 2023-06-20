@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 14:57:47 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:00:18 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,26 @@ int	key_press(int key, void *param)
 	if (key == Z_LC)
 	{
 		master->map.z_rot += 15;
+		render_map(master);
+	}
+	if (key == U_ARROW)
+	{
+		master->map.offset.y -= 10;
+		render_map(master);
+	}
+	if (key == D_ARROW)
+	{
+		master->map.offset.y += 10;
+		render_map(master);
+	}
+	if (key == L_ARROW)
+	{
+		master->map.offset.x -= 10;
+		render_map(master);
+	}
+	if (key == R_ARROW)
+	{
+		master->map.offset.x += 10;
 		render_map(master);
 	}
 	ft_printf("Key: %d i: %d\n", key, i);

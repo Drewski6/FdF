@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 14:19:59 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:27:45 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	init_map(t_master *master)
 	master->map.x_rot = 0;
 	master->map.y_rot = 0;
 	master->map.z_rot = 0;
+	master->map.offset.x = 0;
+	master->map.offset.y = 0;
+	master->map.offset.z = 0;
 	return (0);
 }
 

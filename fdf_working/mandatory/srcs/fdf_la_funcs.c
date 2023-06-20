@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 15:04:34 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:27:03 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,5 +204,6 @@ int	manipulate_points(t_master *master)
 	if (master->map.map_scale != 1)
 		la_scale(master, master->map.map_scale);
 	la_translation(master, &master->map.center, 1);
+	la_translation(master, &master->map.offset, 1);
 	return (0);
 }
