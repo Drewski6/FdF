@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 11:36:04 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:14:23 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,7 @@ int	read_lines(t_master *master, int fd)
 int	read_in_map(t_master *master, char *filename)
 {
 	int		fd;
-	clock_t	start_time;
 
-	if (DEBUG == 1)
-		start_time = clock();
 	fd = open(filename, O_RDONLY);
 	if (fd < 2)
 		error_fdf(master, "open");
@@ -99,11 +96,5 @@ int	read_in_map(t_master *master, char *filename)
 		error_fdf(master, "malloc");
 	ft_lstclear(&(master->map.buf), &ft_free_tab);
 	close(fd);
-	if (DEBUG == 1)
-	{
-		ft_printf("map read time:\t%d/%d s\n",
-			clock() - start_time, CLOCKS_PER_SEC);
-		ft_printf("map size:\t%d\n", master->map.map_size);
-	}
 	return (0);
 }

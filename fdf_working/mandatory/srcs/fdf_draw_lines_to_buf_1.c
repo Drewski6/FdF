@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 12:32:46 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:57:18 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	map_fits(t_master *master)
 			return (1);
 		if (master->map.pnts_copy[i].y < MAP_MARGIN
 			|| master->map.pnts_copy[i].y > (WIN_Y - MAP_MARGIN))
-			return (1);
+			return (2);
 		i++;
 	}
 	return (0);
@@ -32,11 +32,19 @@ int	map_fits(t_master *master)
 
 int	fit_map_to_screen(t_master *master)
 {
+	int	i;
+	int	br;
+
+	i = 0;
+	br = 0;
 	while (!map_fits(master))
 	{
-		master->map.map_scale += 0.2;
-		la_scale(master, master->map.pnts_copy, master->map.map_scale);
+		master->map.map_scale += 0.1;
+		la_scale(master, master->map.map_scale);
+		i++;
 	}
+	br = map_fits(master);
+	printf("scale set at %f: ran %d times: broke with %d\n", master->map.map_scale, i, br);
 	return (0);
 }
 
@@ -87,7 +95,7 @@ int	draw_lines(t_master *master)
 {
 	if (master->map.renders == 0)
 		fit_map_to_screen(master);
-	refresh_max_min(master);
+	//refresh_max_min(master);
 	iterate_over_points(master);
 	return (0);
 }
