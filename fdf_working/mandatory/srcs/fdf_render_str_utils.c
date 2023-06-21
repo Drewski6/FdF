@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 15:22:49 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:28:22 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,10 @@ UP ARROW        PAN UP\n\
 DOWN ARROW      PAN DOWN\n\
 LEFT ARROW      PAN LEFT\n\
 RIGHT ARROW     PAN RIGHT\n\
-PLUS            INCREASE SCALE\n\
-MINUS           DECREASE SCALE\n\
+PLUS            ZOOM IN (SMALL)\n\
+MINUS           ZOOM OUT (SMALL)\n\
+RIGHT ANG BRKT  ZOOM IN (LARGE)\n\
+LEFT ANG BRKT   ZOOM OUT (LARGE)\n\
 CLOSE SQ BRKT   INCREASE Z SCALE\n\
 OPEN SQ BRKT    DECREASE Z SCALE\n\
 R               RESET PROJECTION\n\

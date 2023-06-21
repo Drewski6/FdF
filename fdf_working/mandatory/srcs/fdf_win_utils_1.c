@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 15:16:29 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:31:07 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,13 @@ int	manipulation_control_2(t_master *master, int key)
 		master->map.map_scale += 0.2;
 	if (key == MINUS_KEY)
 		master->map.map_scale -= 0.2;
-	if (key == C_SQ_BRACKET)
+	if (key == R_ANG_BRKT)
+		master->map.map_scale += 2;
+	if (key == L_ANG_BRKT)
+		master->map.map_scale -= 2;
+	if (key == C_SQ_BRKT)
 		master->map.z_scale += 1;
-	if (key == O_SQ_BRACKET)
+	if (key == O_SQ_BRKT)
 		master->map.z_scale -= 1;
 	return (1);
 }
@@ -87,8 +91,8 @@ int	key_press(int key, void *param)
 		|| key == D_ARROW || key == L_ARROW || key == R_ARROW || key == S_KEY
 		|| key == A_KEY || key == T_KEY)
 		re_render_needed = manipulation_control_1(master, key);
-	if (key == PLUS_KEY || key == MINUS_KEY || key == C_SQ_BRACKET
-		|| key == O_SQ_BRACKET)
+	if (key == PLUS_KEY || key == MINUS_KEY || key == C_SQ_BRKT
+		|| key == O_SQ_BRKT || key == R_ANG_BRKT || key == L_ANG_BRKT)
 		re_render_needed = manipulation_control_2(master, key);
 	if (key == R_KEY)
 		re_render_needed = reset_projection(master);
