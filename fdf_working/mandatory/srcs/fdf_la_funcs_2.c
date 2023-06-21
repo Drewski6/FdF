@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 22:33:38 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 23:16:35 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:34:06 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ void	la_matrix_mult(float rot_mtx[3][3], t_point *point)
 	int		i;
 	int		j;
 	float	product[3];
-	float	*factor[3];
+	float	factor[3];
 
 	i = 0;
-	product[0] = point->x;
-	product[1] = point->y;
-	product[2] = point->z;
-	factor[0] = &point->x;
-	factor[1] = &point->y;
-	factor[2] = &point->z;
+	product[0] = 0;
+	product[1] = 0;
+	product[2] = 0;
+	factor[0] = point->x;
+	factor[1] = point->y;
+	factor[2] = point->z;
 	while (i < 3)
 	{
 		j = 0;
 		while (j < 3)
 		{
-			product[i] += rot_mtx[i][j] * *factor[j];
+			product[i] += rot_mtx[i][j] * factor[j];
 			j++;
 		}
 		i++;

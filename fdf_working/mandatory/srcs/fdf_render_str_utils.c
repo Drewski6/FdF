@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 09:20:26 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:18:32 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,13 @@ By Drew Pentland\n\
 ESC             EXIT\n\
 X               X AXIS ROTATION\n\
 Y               Y AXIS ROTATION\n\
+Z               Z AXIS ROTATION\n\
 UP ARROW        PAN UP\n\
 DOWN ARROW      PAN DOWN\n\
 LEFT ARROW      PAN LEFT\n\
 RIGHT ARROW     PAN RIGHT\n\
+PLUS            INCREASE SCALE\n\
+MINUS           DECREASE SCALE\n\
 \n\
 ");
 	return (0);

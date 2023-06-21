@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 22:46:45 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:17:37 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,17 @@ int	manipulation_control(t_master *master, int key)
 	if (key == Z_KEY)
 		master->map.z_rot += 15;
 	if (key == U_ARROW)
-		master->map.offset.y -= 10;
+		master->map.offset.y -= 50;
 	if (key == D_ARROW)
-		master->map.offset.y += 10;
+		master->map.offset.y += 50;
 	if (key == L_ARROW)
-		master->map.offset.x -= 10;
+		master->map.offset.x -= 50;
 	if (key == R_ARROW)
-		master->map.offset.x += 10;
+		master->map.offset.x += 50;
+	if (key == PLUS_KEY)
+		master->map.map_scale += 0.2;
+	if (key == MINUS_KEY)
+		master->map.map_scale -= 0.2;
 	render_map(master);
 	return (0);
 }
@@ -64,7 +68,8 @@ int	key_press(int key, void *param)
 			return (0);
 	}
 	if (key == X_KEY || key == Y_KEY || key == Z_KEY || key == U_ARROW
-		|| key == D_ARROW || key == L_ARROW || key == R_ARROW)
+		|| key == D_ARROW || key == L_ARROW || key == R_ARROW || key == PLUS_KEY
+		|| key == MINUS_KEY)
 		manipulation_control(master, key);
 	ft_printf("Key: %d i: %d\n", key, i);
 	return (0);

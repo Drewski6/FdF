@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 10:44:05 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:07:31 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define X_KEY			120
 # define Y_KEY			121
 # define Z_KEY			119
+# define PLUS_KEY		61
+# define MINUS_KEY		41
 
 //	Sub Structs
 typedef struct s_point
