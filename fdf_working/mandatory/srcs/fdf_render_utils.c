@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 18:04:55 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 12:19:51 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:57:12 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,23 @@ int	render_background(t_master *master)
 	}
 	return (0);
 }
+
+// int	print_render_info(t_master *master)
+// {
+// 	printf("rotation x:%f y:%f z:%f\n", master->map.x_rot,
+// 		master->map.y_rot, master->map.z_rot);
+// 	printf("offset x:%f y:%f z:%f\n", master->map.offset.x,
+// 		master->map.offset.y, master->map.offset.z);
+// 	printf("center x:%f y:%f z:%f\n", master->map.center.x,
+// 		master->map.center.y, master->map.center.z);
+// 	printf("origin x:%f y:%f z:%f\n", master->map.origin.x,
+// 		master->map.origin.y, master->map.origin.z);
+// 	printf("scale_default:%f scale:%f\n", master->map.map_scale_default,
+// 		master->map.map_scale);
+// 	return (0);
+// }
+
+// print_render_info(master);
 
 int	render_map(t_master *master)
 {

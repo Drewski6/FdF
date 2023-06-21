@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 11:46:07 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:15:15 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,32 +49,7 @@ int	manipulation_control(t_master *master, int key)
 		master->map.map_scale += 0.2;
 	if (key == MINUS_KEY)
 		master->map.map_scale -= 0.2;
-	render_map(master);
-	return (0);
-}
-
-int	key_press(int key, void *param)
-{
-	t_master	*master;
-	static int	i;
-
-	i++;
-	master = (t_master *)param;
-	if (key == ESC)
-		close_program(master);
-	if (key == ENTER)
-	{
-		if (i == 1)
-			return (0);
-	}
-	if (key == X_KEY || key == Y_KEY || key == Z_KEY || key == U_ARROW
-		|| key == D_ARROW || key == L_ARROW || key == R_ARROW || key == PLUS_KEY
-		|| key == MINUS_KEY)
-		manipulation_control(master, key);
-	if (key == R_KEY)
-		reset_projection(master);
-	ft_printf("Key: %d i: %d\n", key, i);
-	return (0);
+	return (1);
 }
 
 int	reset_projection(t_master *master)
@@ -86,7 +61,34 @@ int	reset_projection(t_master *master)
 	master->map.offset.y = 0;
 	master->map.offset.z = 0;
 	master->map.map_scale = master->map.map_scale_default;
-	render_map(master);
+	return (1);
+}
+
+int	key_press(int key, void *param)
+{
+	t_master	*master;
+	int			re_render_needed;
+	static int	i;
+
+	i++;
+	re_render_needed = 0;
+	master = (t_master *)param;
+	if (key == ESC)
+		close_program(master);
+	if (key == ENTER)
+	{
+		if (i == 1)
+			return (0);
+	}
+	if (key == X_KEY || key == Y_KEY || key == Z_KEY || key == U_ARROW
+		|| key == D_ARROW || key == L_ARROW || key == R_ARROW || key == PLUS_KEY
+		|| key == MINUS_KEY)
+		re_render_needed = manipulation_control(master, key);
+	if (key == R_KEY)
+		re_render_needed = reset_projection(master);
+	if (re_render_needed == 1)
+		render_map(master);
+	ft_printf("Key: %d i: %d\n", key, i);
 	return (0);
 }
 

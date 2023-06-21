@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:25:50 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 22:58:41 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:02:09 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	build_points_set_origin(t_master *master)
 {
 	master->map.origin.x = (float)master->map.size_x / 2;
 	master->map.origin.y = (float)master->map.size_y / 2;
-	master->map.origin.z = (float)master->map.size_z / 2;
+	master->map.origin.z = 0;
 	return (0);
 }
