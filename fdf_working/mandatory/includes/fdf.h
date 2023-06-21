@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 15:01:05 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:17:15 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,14 @@
 # define X_KEY			120
 # define Y_KEY			121
 # define Z_KEY			119
+# define S_KEY			115
+# define A_KEY			113
+# define T_KEY			116
+# define R_KEY			114
 # define PLUS_KEY		61
 # define MINUS_KEY		41
-# define R_KEY			114
+# define C_SQ_BRACKET	65106
+# define O_SQ_BRACKET	36
 
 //	Sub Structs
 typedef struct s_point

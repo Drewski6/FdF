@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:23:05 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:16:29 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ int	manipulation_control_1(t_master *master, int key)
 		master->map.y_rot += 15;
 	if (key == Z_KEY)
 		master->map.z_rot += 15;
+	if (key == S_KEY)
+		master->map.x_rot -= 15;
+	if (key == T_KEY)
+		master->map.y_rot -= 15;
+	if (key == A_KEY)
+		master->map.z_rot -= 15;
 	if (key == U_ARROW)
 		master->map.offset.y -= 50;
 	if (key == D_ARROW)
@@ -59,6 +65,10 @@ int	manipulation_control_2(t_master *master, int key)
 		master->map.map_scale += 0.2;
 	if (key == MINUS_KEY)
 		master->map.map_scale -= 0.2;
+	if (key == C_SQ_BRACKET)
+		master->map.z_scale += 1;
+	if (key == O_SQ_BRACKET)
+		master->map.z_scale -= 1;
 	return (1);
 }
 
@@ -73,15 +83,12 @@ int	key_press(int key, void *param)
 	master = (t_master *)param;
 	if (key == ESC)
 		close_program(master);
-	if (key == ENTER)
-	{
-		if (i == 1)
-			return (0);
-	}
 	if (key == X_KEY || key == Y_KEY || key == Z_KEY || key == U_ARROW
-		|| key == D_ARROW || key == L_ARROW || key == R_ARROW)
+		|| key == D_ARROW || key == L_ARROW || key == R_ARROW || key == S_KEY
+		|| key == A_KEY || key == T_KEY)
 		re_render_needed = manipulation_control_1(master, key);
-	if (key == PLUS_KEY || key == MINUS_KEY)
+	if (key == PLUS_KEY || key == MINUS_KEY || key == C_SQ_BRACKET
+		|| key == O_SQ_BRACKET)
 		re_render_needed = manipulation_control_2(master, key);
 	if (key == R_KEY)
 		re_render_needed = reset_projection(master);
