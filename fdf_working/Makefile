@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/21 13:11:49 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/06/21 14:06:37 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS = fdf.c \
 	   fdf_render_str_utils.c \
 	   fdf_render_utils.c \
 	   fdf_utils.c \
-	   fdf_win_utils.c \
+	   fdf_win_utils_1.c \
+	   fdf_win_utils_2.c \
 	   fdf_debug_utils.c \
 
 SRCS_DIR = mandatory/srcs/

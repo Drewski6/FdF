@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 13:15:49 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:10:11 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,12 +135,15 @@ int		error_fdf_putstr(char *message);
 void	close_program(t_master *master);
 void	ft_free_tab(void *table);
 
-//  fdf_win_utils.c
+//  fdf_win_utils_1.c
 int		mouse_usage(int button, int x, int y, void *param);
-int		manipulation_control(t_master *master, int key);
-int		reset_projection(t_master *master);
+int		manipulation_control_1(t_master *master, int key);
+int		manipulation_control_2(t_master *master, int key);
 int		key_press(int key, void *param);
 int		init_win(t_master *master);
+
+//  fdf_win_utils_2.c
+int		reset_projection(t_master *master);
 
 //  fdf_map_utils.c
 int		init_map(t_master *master);
@@ -193,8 +196,6 @@ int		la_z_rot(t_master *master, float ang_deg);
 //	fdf_draw_lines_to_buf_1.c
 int		map_fits(t_master *master);
 int		fit_map_to_screen(t_master *master);
-// int		cmp_max_min(t_point *current, float *max_min);
-// int		refresh_max_min(t_master *master);
 int		draw_lines(t_master *master);
 
 //	fdf_draw_lines_to_buf_2.c

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_win_utils.c                                    :+:      :+:    :+:   */
+/*   fdf_win_utils_1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 12:15:15 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:12:36 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	mouse_usage(int button, int x, int y, void *param)
 	return (0);
 }
 
-int	manipulation_control(t_master *master, int key)
+int	manipulation_control_1(t_master *master, int key)
 {
 	if (key == X_KEY)
 		master->map.x_rot += 15;
@@ -45,23 +45,16 @@ int	manipulation_control(t_master *master, int key)
 		master->map.offset.x -= 50;
 	if (key == R_ARROW)
 		master->map.offset.x += 50;
+	return (1);
+}
+
+int	manipulation_control_2(t_master *master, int key)
+{
 	if (key == PLUS_KEY)
 		master->map.map_scale += 0.2;
 	if (key == MINUS_KEY)
 		master->map.map_scale -= 0.2;
-	return (1);
-}
-
-int	reset_projection(t_master *master)
-{
-	master->map.x_rot = 0;
-	master->map.y_rot = 0;
-	master->map.z_rot = 0;
-	master->map.offset.x = 0;
-	master->map.offset.y = 0;
-	master->map.offset.z = 0;
-	master->map.map_scale = master->map.map_scale_default;
-	return (1);
+	return (0);
 }
 
 int	key_press(int key, void *param)
@@ -81,9 +74,10 @@ int	key_press(int key, void *param)
 			return (0);
 	}
 	if (key == X_KEY || key == Y_KEY || key == Z_KEY || key == U_ARROW
-		|| key == D_ARROW || key == L_ARROW || key == R_ARROW || key == PLUS_KEY
-		|| key == MINUS_KEY)
-		re_render_needed = manipulation_control(master, key);
+		|| key == D_ARROW || key == L_ARROW || key == R_ARROW)
+		re_render_needed = manipulation_control_1(master, key);
+	if (key == PLUS_KEY || key == MINUS_KEY)
+		re_render_needed = manipulation_control_2(master, key);
 	if (key == R_KEY)
 		re_render_needed = reset_projection(master);
 	if (re_render_needed == 1)
