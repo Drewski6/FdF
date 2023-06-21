@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:18:31 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:23:05 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	manipulation_control_1(t_master *master, int key)
 		master->map.offset.x += 50;
 	return (1);
 }
+
+/*	
+**	rather than inc by 0.2 can I make it increase by a factor for size_x?
+**	
+**/
 
 int	manipulation_control_2(t_master *master, int key)
 {

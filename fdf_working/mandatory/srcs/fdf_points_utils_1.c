@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 10:30:54 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:55:47 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	build_points_list_loop(t_master *master)
 		while (++x < master->map.size_x)
 		{
 			build_points_set_x_y(points_current, x, y);
+			if (!((char **)buf_current->content)[x])
+				error_fdf(master, "Map Dimensions Error");
 			points_current->z = ft_atoi(((char **)buf_current->content)[x]);
 			if (y == master->map.size_y - 1 && x == master->map.size_x - 1)
 				points_current->next = 0;
@@ -74,7 +76,10 @@ int	build_points_apply_color_gradient(t_master *master)
 
 	top_color = L_TOP_C;
 	base_color = L_BASE_C;
-	step = (top_color - base_color) / master->map.size_z;
+	if (master->map.size_z == 0)
+		step = 0;
+	else
+		step = (top_color - base_color) / master->map.size_z;
 	i = 0;
 	while (i < master->map.map_size)
 	{
