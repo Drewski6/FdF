@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:58:20 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 10:41:39 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:44:26 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	fit_map_to_screen(t_master *master)
 		la_translation(master, &master->map.origin, 0);
 		i++;
 	}
+	master->map.map_scale_default = master->map.map_scale;
 	return (0);
 }
 

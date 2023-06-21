@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 11:07:31 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:43:30 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 # define Z_KEY			119
 # define PLUS_KEY		61
 # define MINUS_KEY		41
+# define R_KEY			114
 
 //	Sub Structs
 typedef struct s_point
@@ -90,6 +91,7 @@ typedef struct s_map
 	int			size_z;
 	int			map_size;
 	float		map_scale;
+	float		map_scale_default;
 	int			renders;
 	float		x_rot;
 	float		y_rot;
@@ -136,6 +138,7 @@ void	ft_free_tab(void *table);
 int		mouse_usage(int button, int x, int y, void *param);
 int		manipulation_control(t_master *master, int key);
 int		key_press(int key, void *param);
+int		reset_projection(t_master *master);
 int		init_win(t_master *master);
 
 //  fdf_map_utils.c
