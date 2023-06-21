@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:12:36 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:18:31 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	manipulation_control_2(t_master *master, int key)
 		master->map.map_scale += 0.2;
 	if (key == MINUS_KEY)
 		master->map.map_scale -= 0.2;
-	return (0);
+	return (1);
 }
 
 int	key_press(int key, void *param)
