@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 11:48:02 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:22:49 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,20 @@ By Drew Pentland\n\
 ###### CONTROLS ######\n\
 \n\
 ESC             EXIT\n\
-X               X AXIS ROTATION\n\
-Y               Y AXIS ROTATION\n\
-Z               Z AXIS ROTATION\n\
+X               POS X AXIS ROTATION\n\
+Y               POS Y AXIS ROTATION\n\
+Z               POS Z AXIS ROTATION\n\
+S               NEG X AXIS ROTATION\n\
+A               NEG Y AXIS ROTATION\n\
+T               NEG Z AXIS ROTATION\n\
 UP ARROW        PAN UP\n\
 DOWN ARROW      PAN DOWN\n\
 LEFT ARROW      PAN LEFT\n\
 RIGHT ARROW     PAN RIGHT\n\
 PLUS            INCREASE SCALE\n\
 MINUS           DECREASE SCALE\n\
+CLOSE SQ BRKT   INCREASE Z SCALE\n\
+OPEN SQ BRKT    DECREASE Z SCALE\n\
 R               RESET PROJECTION\n\
 \n\
 ");
