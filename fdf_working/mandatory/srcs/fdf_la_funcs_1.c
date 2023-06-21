@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 09:16:36 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:02:41 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,16 @@ int	la_z_height(t_master *master, float divisor)
 int	manipulate_points(t_master *master)
 {
 	la_translation(master, &master->map.origin, 0);
-	la_z_height(master, master->map.size_x - master->map.size_z);
+	if (master->map.size_x > 100)
+		la_z_height(master, 2);
+	else
+		la_z_height(master, master->map.size_x - master->map.size_z);
 	la_scale(master, master->map.map_scale);
+	if (master->map.size_x > 100 && master->map.renders == 0)
+	{
+		master->map.x_rot += 45;
+		master->map.y_rot += 45;
+	}
 	la_x_rot(master, master->map.x_rot);
 	la_y_rot(master, master->map.y_rot);
 	la_z_rot(master, master->map.z_rot);

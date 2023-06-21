@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/21 09:24:05 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/06/21 10:43:21 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ NOCOLOR='\033[0m'
 SRCS = fdf.c \
 	   fdf_draw_lines_to_buf_1.c \
 	   fdf_draw_lines_to_buf_2.c \
+	   fdf_draw_lines_to_buf_3.c \
 	   fdf_img_utils.c \
 	   fdf_la_funcs_1.c \
 	   fdf_la_funcs_2.c \

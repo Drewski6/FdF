@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 09:24:19 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:44:05 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
 # define TEXT_COLOR		WHITE
 # define BG_COLOR		NAVY
 # define MENU_COLOR		BROWN
-# define LINE_COLOR		WHITE
+# define L_BASE_C		WHITE
+# define L_TOP_C		GREEN
 
 //	Window Param Macros
 # define WIN_X			1920
@@ -60,6 +61,7 @@ typedef struct s_point
 	float			z;
 	int				x_coord;
 	int				y_coord;
+	int				color;
 	struct s_point	*next;
 }					t_point;
 
@@ -182,18 +184,20 @@ int		la_x_rot(t_master *master, float ang_deg);
 int		la_y_rot(t_master *master, float ang_deg);
 int		la_z_rot(t_master *master, float ang_deg);
 
-//fdf_draw_lines_to_buffer_1.c
+//	fdf_draw_lines_to_buf_1.c
 int		map_fits(t_master *master);
 int		fit_map_to_screen(t_master *master);
-int		cmp_max_min(t_point *current, float *max_min);
-int		refresh_max_min(t_master *master);
+// int		cmp_max_min(t_point *current, float *max_min);
+// int		refresh_max_min(t_master *master);
 int		draw_lines(t_master *master);
 
-//fdf_draw_lines_to_buffer_2.c
+//	fdf_draw_lines_to_buf_2.c
 int		pixel_in_bounds(t_point *point);
 int		pixel_put(t_master *master, int color, int x, int y);
 int		bresenhams_line(t_master *master, t_point from, t_point *to);
 int		draw_lines_for_point(t_master *master, int i);
+
+//	fdf_draw_lines_to_buf_3.c
 int		iterate_over_points(t_master *master);
 
 //  fdf_debug_utils.c

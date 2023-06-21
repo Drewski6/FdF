@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:27:54 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 13:15:22 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:41:03 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,21 @@ int	pixel_put(t_master *master, int color, int x, int y)
 	return (0);
 }
 
+int	apply_gradient(t_point *from, t_point *to, int line_size, int pixel_no)
+{
+	int	color_diff;
+
+	color_diff = from->color - to->color;
+	color_diff /= line_size;
+	return (from->color + (color_diff * pixel_no));
+}
+
 int	bresenhams_line(t_master *master, t_point from, t_point *to)
 {
 	t_point	delta;
+	t_point	pixel;
 	int		px_count;
-	float	x;
-	float	y;
+	int		line_size;
 
 	if (pixel_in_bounds(&from) == 0 && pixel_in_bounds(to) == 0)
 		return (0);
@@ -43,13 +52,15 @@ int	bresenhams_line(t_master *master, t_point from, t_point *to)
 	px_count = sqrt((delta.x * delta.x) + (delta.y * delta.y));
 	delta.x /= px_count;
 	delta.y /= px_count;
-	x = from.x;
-	y = from.y;
+	pixel.x = from.x;
+	pixel.y = from.y;
+	line_size = px_count;
 	while (px_count > 0)
 	{
-		pixel_put(master, LINE_COLOR, (int)x, (int)y);
-		x += delta.x;
-		y += delta.y;
+		pixel_put(master, apply_gradient(&from, to, line_size, px_count),
+			(int)pixel.x, (int)pixel.y);
+		pixel.x += delta.x;
+		pixel.y += delta.y;
 		px_count--;
 	}
 	return (0);
@@ -64,18 +75,5 @@ int	draw_lines_for_point(t_master *master, int i)
 		bresenhams_line(master, *point, (point + 1));
 	if (point->y_coord <= master->map.size_y - 2)
 		bresenhams_line(master, *point, (point + master->map.size_x));
-	return (0);
-}
-
-int	iterate_over_points(t_master *master)
-{
-	int	i;
-
-	i = 0;
-	while (i < master->map.map_size - 1)
-	{
-		draw_lines_for_point(master, i);
-		i++;
-	}
 	return (0);
 }

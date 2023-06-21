@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 13:50:29 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:30:54 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,28 @@ int	build_points_list_loop(t_master *master)
 	return (0);
 }
 
+int	build_points_apply_color_gradient(t_master *master)
+{
+	int	i;
+	int	top_color;
+	int	base_color;
+	int	step;
+
+	top_color = L_TOP_C;
+	base_color = L_BASE_C;
+	step = (top_color - base_color) / master->map.size_z;
+	i = 0;
+	while (i < master->map.map_size)
+	{
+		if (master->map.points[i].z == 0)
+			master->map.points[i].color = base_color;
+		else
+			master->map.points[i].color = master->map.points[i].z * step;
+		i++;
+	}
+	return (0);
+}
+
 int	build_points_list(t_master *master)
 {
 	master->map.size_x = 0;
@@ -79,5 +101,6 @@ int	build_points_list(t_master *master)
 	build_points_list_loop(master);
 	master->map.size_z = build_points_largest_z(master);
 	build_points_set_origin(master);
+	build_points_apply_color_gradient(master);
 	return (0);
 }
