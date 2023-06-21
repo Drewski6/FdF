@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:54:48 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:01:05 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ int		read_in_map(t_master *master, char *filename);
 //  fdf_points_utils_1.c
 int		build_points_largest_z(t_master *master);
 int		build_points_set_x_y(t_point *points_current, int x, int y);
-int		build_points_list_loop(t_master *master);
+void	build_points_list_loop(t_master *master);
 int		build_points_list(t_master *master);
 
 //  fdf_points_utils_2.c

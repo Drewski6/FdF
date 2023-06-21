@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:55:47 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:00:30 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	build_points_set_x_y(t_point *points_current, int x, int y)
 	return (0);
 }
 
-int	build_points_list_loop(t_master *master)
+void	build_points_list_loop(t_master *master)
 {
 	int		y;
 	int		x;
@@ -64,7 +64,6 @@ int	build_points_list_loop(t_master *master)
 		}
 		buf_current = buf_current->next;
 	}
-	return (0);
 }
 
 int	build_points_apply_color_gradient(t_master *master)
