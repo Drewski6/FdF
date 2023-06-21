@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 13:40:57 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 09:20:26 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,12 @@ By Drew Pentland\n\
 ###### CONTROLS ######\n\
 \n\
 ESC             EXIT\n\
-\n\
-###### SETTINGS ######\n\
-\n\
-WINDOW WIDTH:   WIN_X\n\
+X               X AXIS ROTATION\n\
+Y               Y AXIS ROTATION\n\
+UP ARROW        PAN UP\n\
+DOWN ARROW      PAN DOWN\n\
+LEFT ARROW      PAN LEFT\n\
+RIGHT ARROW     PAN RIGHT\n\
 \n\
 ");
 	return (0);

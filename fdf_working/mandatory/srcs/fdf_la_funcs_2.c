@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 22:33:38 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 22:47:28 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:16:35 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	la_matrix_mult(float rot_mtx[3][3], t_point *point)
 		j = 0;
 		while (j < 3)
 		{
-			product[i] += rot_mtx[i][j] * factor[j][0];
+			product[i] += rot_mtx[i][j] * *factor[j];
 			j++;
 		}
 		i++;

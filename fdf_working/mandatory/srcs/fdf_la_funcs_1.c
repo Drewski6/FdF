@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_la_funcs.c                                     :+:      :+:    :+:   */
+/*   fdf_la_funcs_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/20 22:34:15 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/21 09:16:36 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,37 @@ int	la_translation(t_master *master, t_point *translate, int add)
 	return (0);
 }
 
+int	la_ortho_projection(t_master *master)
+{
+	float	rot_mtx[3][3];
+	int		i;
+
+	la_matrix_init(rot_mtx);
+	rot_mtx[0][0] = 1;
+	rot_mtx[1][1] = 1;
+	rot_mtx[2][2] = 1;
+	i = 0;
+	while (i < master->map.map_size)
+	{
+		la_matrix_mult(rot_mtx, &master->map.pnts_copy[i]);
+		i++;
+	}
+	return (0);
+}
+
+int	la_z_height(t_master *master, float divisor)
+{
+	int	i;
+
+	i = 0;
+	while (i < master->map.map_size)
+	{
+		master->map.pnts_copy[i].z = master->map.pnts_copy[i].z / divisor;
+		i++;
+	}
+	return (0);
+}
+
 /*	
 **	manipulate your pnts_copy (copy of points read from map file)
 **	functions:
@@ -83,11 +114,12 @@ int	la_translation(t_master *master, t_point *translate, int add)
 int	manipulate_points(t_master *master)
 {
 	la_translation(master, &master->map.origin, 0);
+	la_z_height(master, master->map.size_x - master->map.size_z);
+	la_scale(master, master->map.map_scale);
 	la_x_rot(master, master->map.x_rot);
 	la_y_rot(master, master->map.y_rot);
 	la_z_rot(master, master->map.z_rot);
-	if (master->map.map_scale != 1)
-		la_scale(master, master->map.map_scale);
+	la_ortho_projection(master);
 	la_translation(master, &master->map.center, 1);
 	la_translation(master, &master->map.offset, 1);
 	return (0);
