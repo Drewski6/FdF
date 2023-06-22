@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 15:31:38 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:55:44 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ typedef struct s_master
 //  fdf_utils.c
 int		error_fdf(t_master *master, char *message);
 int		error_fdf_putstr(char *message);
-void	close_program(t_master *master);
+int		close_program(t_master *master);
 void	ft_free_tab(void *table);
 
 //  fdf_win_utils_1.c

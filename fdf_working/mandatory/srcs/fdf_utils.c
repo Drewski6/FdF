@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:17:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/19 11:36:13 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:55:20 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	error_fdf_putstr(char *message)
 	exit(EXIT_FAILURE);
 }
 
-void	close_program(t_master *master)
+int	close_program(t_master *master)
 {
 	mlx_destroy_window(master->win.mlx_ptr, master->win.win_ptr);
 	mlx_destroy_image(master->win.mlx_ptr, master->bitmap.img_ptr);
@@ -51,6 +51,7 @@ void	close_program(t_master *master)
 		master->map.points = 0;
 	}
 	exit(0);
+	return (0);
 }
 
 void	ft_free_tab(void *table)
