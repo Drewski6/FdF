@@ -6,13 +6,13 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/25 16:00:09 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:17:42 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define DEBUG 1
+# define HOME_PC
 
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"
@@ -43,25 +43,28 @@
 # define MAP_MARGIN		100
 
 //	Key Press Macros
-# define ESC			65307
-# define ENTER			65293
-# define L_ARROW		65361
-# define U_ARROW		65362
-# define R_ARROW		65363
-# define D_ARROW		65364
-# define X_KEY			120
-# define Y_KEY			121
-# define Z_KEY			119
-# define S_KEY			115
-# define A_KEY			113
-# define T_KEY			116
-# define R_KEY			114
-# define PLUS_KEY		61
-# define MINUS_KEY		41
-# define C_SQ_BRKT		65106
-# define O_SQ_BRKT		36
-# define R_ANG_BRKT		58
-# define L_ANG_BRKT		59
+# ifdef HOME_PC
+#  define ESC			65307
+#  define ENTER			65293
+#  define L_ARROW		65361
+#  define U_ARROW		65362
+#  define R_ARROW		65363
+#  define D_ARROW		65364
+#  define X_KEY			120
+#  define Y_KEY			121
+#  define Z_KEY			119
+#  define S_KEY			115
+#  define A_KEY			113
+#  define T_KEY			116
+#  define R_KEY			114
+#  define P_KEY			112
+#  define PLUS_KEY		61
+#  define MINUS_KEY		41
+#  define C_SQ_BRKT		65106
+#  define O_SQ_BRKT		36
+#  define R_ANG_BRKT	58
+#  define L_ANG_BRKT	59
+# endif
 
 //	Sub Structs
 typedef struct s_point
@@ -104,6 +107,7 @@ typedef struct s_map
 	float		y_rot;
 	float		z_rot;
 	float		z_scale;
+	int			globe;
 }				t_map;
 
 typedef struct s_bitmap

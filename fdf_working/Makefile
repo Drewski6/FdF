@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/25 15:57:16 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/06/25 16:05:24 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,8 +67,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo -e -n ${GREEN}
 	@make -C libft --silent
-	@make -C mlx --silent
 	@printf "===== MAKING FDF =====\n"
+	@echo -e -n ${NOCOLOR}
+	@make -C mlx --silent
+	@echo -e -n ${GREEN}
+	@printf "===== MAKING MLX =====\n"
 	@echo -e -n ${NOCOLOR}
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MATH) $(MLX) -o $(NAME)
 
