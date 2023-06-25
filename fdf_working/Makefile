@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/21 14:06:37 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/06/25 15:57:16 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,19 +34,19 @@ SRCS = fdf.c \
 	   fdf_win_utils_2.c \
 	   fdf_debug_utils.c \
 
-SRCS_DIR = mandatory/srcs/
+SRCS_DIR = srcs/
 
 # ***** Includes *****
 
 INCS = fdf.h
 
-INCS_DIR = mandatory/includes/
+INCS_DIR = includes/
 
 # ***** Objects *****
 
 OBJS = $(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
 
-OBJS_DIR = mandatory/objs/
+OBJS_DIR = objs/
 
 # ***** Compile and Archiver *****
 
@@ -56,7 +56,7 @@ CC = cc
 
 LIBFT = -Llibft -lft
 
-MLX = -L/usr/local/lib -lmlx -lXext -lX11
+MLX = -Lmlx -lmlx -lXext -lX11
 
 MATH = -lm
 
@@ -67,6 +67,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@echo -e -n ${GREEN}
 	@make -C libft --silent
+	@make -C mlx --silent
 	@printf "===== MAKING FDF =====\n"
 	@echo -e -n ${NOCOLOR}
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MATH) $(MLX) -o $(NAME)
@@ -77,6 +78,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 
 clean:
 	@make -C libft clean --silent
+	@make -C mlx clean --silent
 	@rm -f $(OBJS)
 	@rm -rf $(OBJS_DIR)
 

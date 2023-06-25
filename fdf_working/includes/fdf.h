@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/22 12:55:44 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:00:09 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define FDF_H
 # define DEBUG 1
 
-# include "../../libft/includes/libft.h"
-# include "mlx.h"
-# include "mlx_int.h"
+# include "../libft/includes/libft.h"
+# include "../mlx/mlx.h"
+# include "../mlx/mlx_int.h"
 # include <time.h>
 # include <math.h>
 
