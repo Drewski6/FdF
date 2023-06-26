@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/25 16:17:42 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:55:22 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,10 @@ typedef struct s_point
 	int				x_coord;
 	int				y_coord;
 	int				color;
+	float			latitude;
+	float			longitude;
 	struct s_point	*next;
 }					t_point;
-
-typedef struct s_max_min
-{
-	float			x_max;
-	float			y_max;
-	float			z_max;
-	float			x_min;
-	float			y_min;
-	float			z_min;
-}				t_max_min;
 
 typedef struct s_map
 {
@@ -107,7 +99,8 @@ typedef struct s_map
 	float		y_rot;
 	float		z_rot;
 	float		z_scale;
-	int			globe;
+	int			alt_proj;
+	float		radius;
 }				t_map;
 
 typedef struct s_bitmap
@@ -133,7 +126,6 @@ typedef struct s_master
 	t_win		win;
 	t_map		map;
 	t_bitmap	bitmap;
-	t_max_min	max_min;
 }				t_master;
 
 //  Function Declarations  //
@@ -158,7 +150,6 @@ int		reset_projection(t_master *master);
 
 //  fdf_map_utils.c
 int		init_map(t_master *master);
-int		init_max_min(t_master *master);
 int		map_buf_add(t_master *master, char **tab);
 int		read_lines(t_master *master, int fd);
 int		read_in_map(t_master *master, char *filename);
@@ -208,6 +199,9 @@ int		la_z_rot(t_master *master, float ang_deg);
 int		map_fits(t_master *master);
 int		fit_map_to_screen(t_master *master);
 int		draw_lines(t_master *master);
+
+//	fdf_sphere_utils.c
+int		sphere_coords(t_master *master);
 
 //	fdf_draw_lines_to_buf_2.c
 int		pixel_in_bounds(t_point *point);

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/25 16:15:25 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:55:36 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	init_map(t_master *master)
 {
-	init_max_min(master);
 	master->map.buf = 0;
 	master->map.points = 0;
 	master->map.pnts_copy = 0;
@@ -36,18 +35,8 @@ int	init_map(t_master *master)
 	master->map.offset.y = 0;
 	master->map.offset.z = 0;
 	master->map.z_scale = 1;
-	master->map.globe = 0;
-	return (0);
-}
-
-int	init_max_min(t_master *master)
-{
-	master->max_min.x_max = 0;
-	master->max_min.y_max = 0;
-	master->max_min.z_max = 0;
-	master->max_min.x_min = 0;
-	master->max_min.y_min = 0;
-	master->max_min.z_min = 0;
+	master->map.alt_proj = 0;
+	master->map.radius = 0;
 	return (0);
 }
 
@@ -104,5 +93,6 @@ int	read_in_map(t_master *master, char *filename)
 		error_fdf(master, "malloc");
 	ft_lstclear(&(master->map.buf), &ft_free_tab);
 	close(fd);
+	sphere_coords(master);
 	return (0);
 }

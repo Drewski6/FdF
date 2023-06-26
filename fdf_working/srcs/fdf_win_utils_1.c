@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/25 16:18:53 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/26 09:12:37 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ int	manipulation_control_2(t_master *master, int key)
 		master->map.z_scale -= 1;
 	if (key == P_KEY)
 	{
-		if (master->map.globe == 0)
-			master->map.globe = 1;
+		if (master->map.alt_proj == 0)
+			master->map.alt_proj = 1;
 		else
-			master->map.globe = 0;
+			master->map.alt_proj = 0;
 	}
 	return (1);
 }
