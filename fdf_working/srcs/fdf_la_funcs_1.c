@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:47:12 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 13:46:57 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:48:38 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,30 @@ int	la_ortho_projection(t_master *master)
 	return (0);
 }
 
+int	la_cabinet_projection(t_master *master)
+{
+	float	rot_mtx[3][3];
+	float	ang_deg;
+	float	ang_rad;
+	int		i;
+
+	ang_deg = 65;
+	ang_rad = ang_deg * M_PI / 180;
+	la_matrix_init(rot_mtx);
+	rot_mtx[0][0] = 1;
+	rot_mtx[0][2] = cos(ang_rad) / 2;
+	rot_mtx[1][1] = 1;
+	rot_mtx[1][2] = sin(ang_rad) / 2;
+	rot_mtx[2][2] = 1;
+	i = 0;
+	while (i < master->map.map_size)
+	{
+		la_matrix_mult(rot_mtx, &master->map.pnts_copy[i]);
+		i++;
+	}
+	return (0);
+}
+
 int	la_z_height(t_master *master, float z_scale)
 {
 	int	i;
@@ -121,7 +145,10 @@ int	manipulate_points(t_master *master)
 	la_x_rot(master, master->map.x_rot);
 	la_y_rot(master, master->map.y_rot);
 	la_z_rot(master, master->map.z_rot);
-	la_ortho_projection(master);
+	if (master->map.alt_proj == 1)
+		la_cabinet_projection(master);
+	else
+		la_ortho_projection(master);
 	if (master->map.renders != 0)
 		la_scale(master, master->map.map_scale);
 	la_translation(master, &master->map.center, 1);
