@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 19:50:57 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:56:49 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,6 @@ int		init_img_buffer(t_master *master, int img_size_x, int img_size_y);
 int		la_scale(t_master *master, int updn);
 int		la_translation(t_master *master, t_point *translate, int add);
 int		la_ortho_projection(t_master *master);
-int		la_cabinet_projection(t_master *master);
 int		la_z_height(t_master *master, float z_scale);
 int		manipulate_points(t_master *master);
 
@@ -193,6 +192,9 @@ void	la_matrix_mult(float rot_mtx[3][3], t_point *point);
 int		la_x_rot(t_master *master, float ang_deg);
 int		la_y_rot(t_master *master, float ang_deg);
 int		la_z_rot(t_master *master, float ang_deg);
+
+//	fdf_la_funcs_3.c
+int		la_cabinet_projection(t_master *master);
 
 //	fdf_draw_lines_to_buf_1.c
 int		map_fits(t_master *master);
