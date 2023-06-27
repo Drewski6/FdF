@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/26 12:40:50 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/06/27 19:33:52 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ SRCS = fdf.c \
 	   fdf_render_str_utils.c \
 	   fdf_render_utils.c \
 	   fdf_utils.c \
-	   fdf_sphere_utils.c \
 	   fdf_win_utils_1.c \
 	   fdf_win_utils_2.c \
 	   fdf_debug_utils.c \

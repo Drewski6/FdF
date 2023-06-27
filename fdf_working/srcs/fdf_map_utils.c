@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/26 12:55:36 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:34:33 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	init_map(t_master *master)
 	master->map.offset.z = 0;
 	master->map.z_scale = 1;
 	master->map.alt_proj = 0;
-	master->map.radius = 0;
 	return (0);
 }
 
@@ -93,6 +92,5 @@ int	read_in_map(t_master *master, char *filename)
 		error_fdf(master, "malloc");
 	ft_lstclear(&(master->map.buf), &ft_free_tab);
 	close(fd);
-	sphere_coords(master);
 	return (0);
 }

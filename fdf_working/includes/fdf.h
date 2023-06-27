@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/26 12:55:22 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:35:18 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ typedef struct s_map
 	float		z_rot;
 	float		z_scale;
 	int			alt_proj;
-	float		radius;
 }				t_map;
 
 typedef struct s_bitmap

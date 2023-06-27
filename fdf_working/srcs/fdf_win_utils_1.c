@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/26 09:12:37 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:34:53 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ int	key_press(int key, void *param)
 		|| key == A_KEY || key == T_KEY)
 		re_render_needed = manipulation_control_1(master, key);
 	if (key == PLUS_KEY || key == MINUS_KEY || key == C_SQ_BRKT
-		|| key == O_SQ_BRKT || key == R_ANG_BRKT || key == L_ANG_BRKT)
+		|| key == O_SQ_BRKT || key == R_ANG_BRKT || key == L_ANG_BRKT
+		|| key == P_KEY)
 		re_render_needed = manipulation_control_2(master, key);
 	if (key == R_KEY)
 		re_render_needed = reset_projection(master);
