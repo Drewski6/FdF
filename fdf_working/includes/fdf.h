@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 20:16:40 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:03:51 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,7 @@ int		build_points_list(t_master *master);
 int		build_points_get_y_len(t_master *master);
 int		build_points_get_x_len(t_master *master);
 int		build_points_set_origin(t_master *master);
+void	points_ceil(t_point *point);
 
 //	fdf_render_utils.c
 int		get_local_color(t_master *master, int color);
@@ -217,11 +218,5 @@ int		draw_lines_for_point(t_master *master, int i);
 
 //	fdf_draw_lines_to_buf_3.c
 int		iterate_over_points(t_master *master);
-
-//  fdf_debug_utils.c
-void	fdf_debug_print_read_in_file(t_master *master);
-int		fdf_debug_read_points_data(t_master *master);
-void	p(t_point *point);
-void	pa(t_master *master);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:25:50 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:54:40 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:03:12 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,12 @@ int	build_points_set_origin(t_master *master)
 	master->map.origin.y = (float)master->map.size_y / 2;
 	master->map.origin.z = 0;
 	return (0);
+}
+
+void	points_ceil(t_point *point)
+{
+	if (point->z > 20000000)
+		point->z = 20000000;
+	if (point->z < -20000000)
+		point->z = -20000000;
 }

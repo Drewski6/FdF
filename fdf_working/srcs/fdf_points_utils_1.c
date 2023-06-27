@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 15:00:30 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:03:14 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	build_points_list_loop(t_master *master)
 			if (!((char **)buf_current->content)[x])
 				error_fdf(master, "Map Dimensions Error");
 			points_current->z = ft_atoi(((char **)buf_current->content)[x]);
+			points_ceil(points_current);
 			if (y == master->map.size_y - 1 && x == master->map.size_x - 1)
 				points_current->next = 0;
 			else
