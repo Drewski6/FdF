@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 20:04:36 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:17:58 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ int	manipulation_control_2(t_master *master, int key)
 		else
 			master->map.alt_proj = 0;
 	}
+	if (key == ONE_KEY)
+		master->map.cabinet_alpha += 10;
+	if (key == TWO_KEY)
+		master->map.cabinet_alpha -= 10;
 	return (1);
 }
 
@@ -100,7 +104,7 @@ int	key_press(int key, void *param)
 		re_render_needed = manipulation_control_1(master, key);
 	if (key == PLUS_KEY || key == MINUS_KEY || key == C_SQ_BRKT
 		|| key == O_SQ_BRKT || key == R_ANG_BRKT || key == L_ANG_BRKT
-		|| key == P_KEY)
+		|| key == P_KEY || key == ONE_KEY || key == TWO_KEY)
 		re_render_needed = manipulation_control_2(master, key);
 	if (key == R_KEY)
 		re_render_needed = reset_projection(master);

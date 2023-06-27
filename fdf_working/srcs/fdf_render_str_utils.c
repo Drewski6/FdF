@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/26 09:13:24 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:25:24 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ LEFT ANG BRKT   ZOOM OUT (LARGE)\n\
 CLOSE SQ BRKT   INCREASE Z SCALE\n\
 OPEN SQ BRKT    DECREASE Z SCALE\n\
 P               ALTERNATE PROJECTION\n\
+E               SET Z ANGLE TO ZERO\n\
+1               INCREASE ALPHA ANGLE\n\
+2               DECREASE ALPHA ANGLE\n\
 R               RESET PROJECTION\n\
 \n\
 ");

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 20:05:09 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:16:40 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@
 //	Window Param Macros
 # define WIN_X			1920
 # define WIN_Y			1080
-# define WIN_MENU_WIDTH	400
+# define WIN_MENU_WIDTH	300
 # define WIN_NAME		"FdF *dpentlan*"
-# define TEXT_ORIGIN_X	100
-# define TEXT_ORIGIN_Y	100
+# define TEXT_ORIGIN_X	50
+# define TEXT_ORIGIN_Y	50
 # define MAP_MARGIN		100
 
 //	Key Press Macros
@@ -59,6 +59,8 @@
 #  define R_KEY			114
 #  define P_KEY			112
 #  define E_KEY			101
+#  define ONE_KEY		38
+#  define TWO_KEY		233
 #  define PLUS_KEY		61
 #  define MINUS_KEY		41
 #  define C_SQ_BRKT		65106
@@ -99,6 +101,7 @@ typedef struct s_map
 	float		z_rot;
 	float		z_scale;
 	int			alt_proj;
+	float		cabinet_alpha;
 }				t_map;
 
 typedef struct s_bitmap
