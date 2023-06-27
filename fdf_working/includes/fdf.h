@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 19:35:18 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:37:18 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ typedef struct s_point
 	int				x_coord;
 	int				y_coord;
 	int				color;
-	float			latitude;
-	float			longitude;
 	struct s_point	*next;
 }					t_point;
 

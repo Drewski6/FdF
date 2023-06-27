@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:49:52 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 14:18:51 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:38:41 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	render_lines(t_master *master)
 		if (master->map.size_x > 100)
 			master->map.z_scale = 2;
 		else
-			master->map.z_scale = master->map.size_x - master->map.size_z;
+			master->map.z_scale = master->map.size_x - master->map.size_z + 1;
 	}
 	manipulate_points(master);
 	draw_lines(master);
