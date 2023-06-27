@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 19:56:49 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:05:09 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 #  define T_KEY			116
 #  define R_KEY			114
 #  define P_KEY			112
+#  define E_KEY			101
 #  define PLUS_KEY		61
 #  define MINUS_KEY		41
 #  define C_SQ_BRKT		65106
@@ -144,6 +145,7 @@ int		init_win(t_master *master);
 
 //  fdf_win_utils_2.c
 int		reset_projection(t_master *master);
+int		z_axis_zero_proj(t_master *master);
 
 //  fdf_map_utils.c
 int		init_map(t_master *master);

@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 09:50:04 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 19:34:53 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 20:04:36 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ int	key_press(int key, void *param)
 		re_render_needed = manipulation_control_2(master, key);
 	if (key == R_KEY)
 		re_render_needed = reset_projection(master);
+	if (key == E_KEY)
+		re_render_needed = z_axis_zero_proj(master);
 	if (re_render_needed == 1)
 		render_map(master);
 	ft_printf("Key: %d i: %d\n", key, i);
