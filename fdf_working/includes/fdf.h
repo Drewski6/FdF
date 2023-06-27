@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 21:03:51 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/27 21:11:46 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ int		build_points_list(t_master *master);
 int		build_points_get_y_len(t_master *master);
 int		build_points_get_x_len(t_master *master);
 int		build_points_set_origin(t_master *master);
-void	points_ceil(t_point *point);
+void	set_points_ceil(t_master *master);
 
 //	fdf_render_utils.c
 int		get_local_color(t_master *master, int color);
@@ -206,9 +206,6 @@ int		la_cabinet_projection(t_master *master);
 int		map_fits(t_master *master);
 int		fit_map_to_screen(t_master *master);
 int		draw_lines(t_master *master);
-
-//	fdf_sphere_utils.c
-int		sphere_coords(t_master *master);
 
 //	fdf_draw_lines_to_buf_2.c
 int		pixel_in_bounds(t_point *point);
