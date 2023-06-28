@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 21:11:46 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 07:58:59 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../mlx/mlx_int.h"
 # include <time.h>
 # include <math.h>
+# include <error.h>
 
 //	Define Colors
 # define WHITE			0xFFFFFF
