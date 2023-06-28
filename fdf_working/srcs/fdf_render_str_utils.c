@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:19:08 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 20:25:24 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:30:26 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ X               POS X AXIS ROTATION\n\
 Y               POS Y AXIS ROTATION\n\
 Z               POS Z AXIS ROTATION\n\
 S               NEG X AXIS ROTATION\n\
-A               NEG Y AXIS ROTATION\n\
-T               NEG Z AXIS ROTATION\n\
+T               NEG Y AXIS ROTATION\n\
+A               NEG Z AXIS ROTATION\n\
 UP ARROW        PAN UP\n\
 DOWN ARROW      PAN DOWN\n\
 LEFT ARROW      PAN LEFT\n\

@@ -6,13 +6,14 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/28 09:48:48 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:33:42 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define HOME_PC
+# define SCHOOL_PC
+//# define HOME_PC
 
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"
@@ -43,26 +44,41 @@
 # define TEXT_ORIGIN_Y	50
 # define MAP_MARGIN		100
 
+//	Key Macros for all computers
+# define ESC			65307
+# define X_KEY			120
+# define Y_KEY			121
+# define S_KEY			115
+# define T_KEY			116
+# define R_KEY			114
+# define P_KEY			112
+# define E_KEY			101
+# define PLUS_KEY		61
+# define ENTER			65293
+# define L_ARROW		65361
+# define U_ARROW		65362
+# define R_ARROW		65363
+# define D_ARROW		65364
+
+//	School Key Macros
+# ifdef SCHOOL_PC
+#  define A_KEY			97
+#  define Z_KEY			122
+#  define ONE_KEY		49
+#  define TWO_KEY		50
+#  define MINUS_KEY		45
+#  define C_SQ_BRKT		91
+#  define O_SQ_BRKT		93
+#  define R_ANG_BRKT	46
+#  define L_ANG_BRKT	44
+# endif
+
 //	Key Press Macros
 # ifdef HOME_PC
-#  define ESC			65307
-#  define ENTER			65293
-#  define L_ARROW		65361
-#  define U_ARROW		65362
-#  define R_ARROW		65363
-#  define D_ARROW		65364
-#  define X_KEY			120
-#  define Y_KEY			121
-#  define Z_KEY			119
-#  define S_KEY			115
 #  define A_KEY			113
-#  define T_KEY			116
-#  define R_KEY			114
-#  define P_KEY			112
-#  define E_KEY			101
+#  define Z_KEY			119
 #  define ONE_KEY		38
 #  define TWO_KEY		233
-#  define PLUS_KEY		61
 #  define MINUS_KEY		41
 #  define C_SQ_BRKT		65106
 #  define O_SQ_BRKT		36
