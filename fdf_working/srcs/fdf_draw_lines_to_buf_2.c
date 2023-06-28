@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:27:54 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/21 10:41:03 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:58:10 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	pixel_in_bounds(t_point *point)
 
 int	pixel_put(t_master *master, int color, int x, int y)
 {
-	if (x >= WIN_X || y >= WIN_Y || x < 0 || y < 0)
+	if (x >= WIN_X || y >= WIN_Y || x < WIN_MENU_WIDTH || y < 0)
 		return (-1);
 	set_px_color_img_buf(master, color, x, y);
 	return (0);
