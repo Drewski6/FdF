@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:29:43 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/28 07:57:04 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:10:10 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	build_points_list(t_master *master)
 	master->map.size_y = build_points_get_y_len(master);
 	master->map.map_size = master->map.size_x * master->map.size_y;
 	if (!master->map.map_size)
-		error_fdf(master, "File size Zero");
+		error_fdf(master, "File Size Zero");
 	master->map.points = (t_point *)ft_calloc(sizeof(t_point),
 			master->map.map_size);
 	if (!master->map.points)

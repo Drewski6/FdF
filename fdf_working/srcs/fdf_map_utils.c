@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:19:40 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 20:15:34 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:02:29 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int	read_in_map(t_master *master, char *filename)
 {
 	int		fd;
 
+	if (!ft_strnstr(filename, ".fdf", ft_strlen(filename)))
+		error_fdf(master, "File Extension Error");
 	fd = open(filename, O_RDONLY);
 	if (fd < 2)
 		error_fdf(master, "open");

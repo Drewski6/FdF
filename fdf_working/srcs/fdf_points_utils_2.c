@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:25:50 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 21:13:14 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:08:09 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	build_points_get_y_len(t_master *master)
 	t_list	*current;
 
 	i = 0;
+	if (!master->map.buf)
+		return (0);
 	current = master->map.buf;
 	while (current)
 	{
@@ -32,6 +34,8 @@ int	build_points_get_x_len(t_master *master)
 	int	i;
 
 	i = 0;
+	if (!master->map.buf)
+		return (0);
 	while (((char **)master->map.buf->content)[i])
 		i++;
 	return (i);
