@@ -6,14 +6,14 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:36:13 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/28 15:33:42 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/07/09 12:54:40 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define SCHOOL_PC
-//# define HOME_PC
+//# define SCHOOL_PC
+# define HOME_PC
 
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"

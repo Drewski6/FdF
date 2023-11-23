@@ -6,7 +6,7 @@
 /*   By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:49:52 by dpentlan          #+#    #+#             */
-/*   Updated: 2023/06/27 19:38:41 by dpentlan         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:20:53 by dpentlan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,11 @@ int	map_fits(t_master *master)
 
 int	fit_map_to_screen(t_master *master)
 {
-	int	i;
-
-	i = 0;
 	while (!map_fits(master))
 	{
 		la_scale(master, 0);
 		master->map.map_scale += 0.2;
 		la_scale(master, 1);
-		i++;
 	}
 	master->map.map_scale_default = master->map.map_scale;
 	return (0);

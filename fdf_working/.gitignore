@@ -1,0 +1,12 @@
+.cache/
+compile_commands.json
+fdf
+libft/libft.a
+libft/objs/
+mlx/libmlx.a
+mlx/libmlx_Linux.a
+mlx/obj/
+mlx/test/main.o
+mlx/test/mlx-test
+objs/
+test.fdf

@@ -6,7 +6,7 @@
 #    By: dpentlan <dpentlan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 14:27:11 by dpentlan          #+#    #+#              #
-#    Updated: 2023/06/27 21:04:09 by dpentlan         ###   ########.fr        #
+#    Updated: 2023/11/23 09:19:20 by dpentlan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,34 +60,55 @@ MLX = -Lmlx -lmlx -lXext -lX11
 
 MATH = -lm
 
+DEPENDS		:=	$(patsubst %.c,$(OBJS_DIR)%.d,$(SRCS))
+OBJS		:=	$(patsubst %.c,$(OBJS_DIR)%.o,$(SRCS))
+COMMANDS	:=	$(patsubst %.c,$(OBJS_DIR)%.cc,$(SRCS))
+
 # ***** Build *****
 
-all: $(NAME)
+all: $(NAME) compile_commands.json
+
+-include $(DEPENDS)
 
 $(NAME): $(OBJS)
 	@echo -e -n ${GREEN}
-	@make -C libft --silent
 	@printf "===== MAKING FDF =====\n"
 	@echo -e -n ${NOCOLOR}
-	@make -C mlx --silent
+	@make -C libft --silent
 	@echo -e -n ${GREEN}
 	@printf "===== MAKING MLX =====\n"
 	@echo -e -n ${NOCOLOR}
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MATH) $(MLX) -o $(NAME)
+	@make -C mlx --silent
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MATH) $(MLX) -o $@
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-	@mkdir -p $(OBJS_DIR)
-	@$(CC) -c $(CFLAGS) -I$(INCS_DIR) $< -o $@
+COMP_COMMAND = $(CC) -c $(CFLAGS) $(addprefix -I,$(INCS_DIR)) -MMD -MP $< -o $@
+CONCAT = awk 'FNR==1 && NR!=1 {print ","}{print}'
+
+$(OBJS_DIR)%.o $(OBJS_DIR)%.cc: $(SRCS_DIR)%.c
+	@mkdir -p $(dir $@)
+	$(COMP_COMMAND)
+	@printf '{\n\t"directory" : "$(shell pwd)",\n\t"command" : "$(COMP_COMMAND)",\n\t"file" : "$<"\n}' > $(OBJS_DIR)$*.cc
+
+compile_commands.json : $(COMMANDS) Makefile
+	@echo "Making compile_commands.json"
+	@echo "[" > compile_commands.json
+	$(CONCAT) $(COMMANDS) >> compile_commands.json
+	@echo "]" >> compile_commands.json
 
 clean:
 	@make -C libft clean --silent
 	@make -C mlx clean --silent
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(DEPENDS) $(COMMANDS)
 	@rm -rf $(OBJS_DIR)
 
 fclean: clean
 	@make -C libft fclean --silent
-	@rm -f $(NAME)
+	@rm -f $(NAME) compile_commands.json
 	@rm -f gdb.txt
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus
+.SUFFIXES:
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
