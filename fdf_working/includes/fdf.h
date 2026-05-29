@@ -12,8 +12,8 @@
 
 #ifndef FDF_H
 # define FDF_H
-//# define SCHOOL_PC
-# define HOME_PC
+# define SCHOOL_PC
+//# define HOME_PC
 
 # include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"
